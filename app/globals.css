@@ -268,64 +268,83 @@ h3 { font-size: 20px; letter-spacing: -0.025em; }
   animation: reactorPulse 3.8s ease-in-out infinite;
 }
 
-.avatar-svg {
+.avatar-image-frame {
   position: relative;
   z-index: 1;
-  width: min(100%, 440px);
-  height: auto;
-  filter: drop-shadow(0 28px 44px rgba(0,0,0,.5));
+  width: min(100%, 460px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid rgba(255,32,78,.42);
+  background: #020304;
+  clip-path: polygon(0 0, 83% 0, 100% 17%, 100% 100%, 17% 100%, 0 83%);
+  box-shadow:
+    0 28px 44px rgba(0,0,0,.5),
+    0 0 54px rgba(255,32,78,.22),
+    inset 0 0 34px rgba(55,247,255,.12);
 }
 
-.skull,
-.rear-plate,
-.brow,
-.faceplate,
-.jaw,
-.chin-guard,
-.temple-blade,
-.cheek {
-  fill: url(#chrome);
-  stroke: rgba(246,240,223,.88);
-  stroke-width: 3;
-  stroke-linejoin: round;
+.avatar-image-frame::before,
+.avatar-image-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
 }
 
-.rear-plate,
-.brow,
-.temple-blade,
-.cheek,
-.chin-guard { fill: url(#gunmetal); }
-.brow { stroke: rgba(255,32,78,.78); filter: drop-shadow(0 0 13px rgba(255,32,78,.22)); }
-.faceplate { fill-opacity: .84; }
-.jaw { fill-opacity: .78; }
-.nose { fill: #050506; stroke: rgba(55,247,255,.38); stroke-width: 3; }
-.temple-blade { stroke: rgba(55,247,255,.62); filter: drop-shadow(0 0 14px rgba(55,247,255,.18)); }
-
-.eye path:first-child { fill: rgba(5,5,6,.86); stroke: rgba(246,240,223,.68); stroke-width: 3; }
-.eye-dead path:last-child { stroke: rgba(55,247,255,.72); stroke-width: 4; stroke-linecap: round; }
-.eye-live path:first-child { fill: rgba(255,32,78,.35); stroke: var(--hot); }
-.eye-live circle { fill: url(#redhot); }
-.scanner { stroke: var(--hot); stroke-width: 5; stroke-linecap: round; animation: scannerSweep 2.2s ease-in-out infinite; }
-
-.mouth path:first-child { fill: rgba(5,5,6,.72); stroke: rgba(255,32,78,.48); stroke-width: 3; }
-.mouth path:last-child { fill: none; stroke: rgba(216,255,62,.52); stroke-width: 3; stroke-linecap: round; }
-
-.teeth path,
-.damage path {
-  fill: none;
-  stroke: rgba(5,5,6,.78);
-  stroke-width: 5;
-  stroke-linecap: round;
+.avatar-image-frame::before {
+  background:
+    linear-gradient(90deg, transparent 0 47%, rgba(255,32,78,.38) 47% 48%, transparent 48% 100%),
+    linear-gradient(180deg, transparent 0 47%, rgba(55,247,255,.26) 47% 48%, transparent 48% 100%),
+    repeating-linear-gradient(180deg, rgba(255,255,255,.11) 0 1px, transparent 1px 6px);
+  mix-blend-mode: screen;
+  opacity: .46;
 }
-.damage path { stroke: rgba(255,32,78,.72); stroke-width: 3; }
 
-.glitch-shards rect {
-  fill: var(--cyan);
-  opacity: .68;
-  animation: shardJump 3.1s steps(1, end) infinite;
+.avatar-image-frame::after {
+  background:
+    linear-gradient(90deg, rgba(255,32,78,.72), rgba(255,32,78,0)) 10% 24% / 27% 8px no-repeat,
+    linear-gradient(90deg, rgba(55,247,255,.66), rgba(55,247,255,0)) 72% 62% / 24% 7px no-repeat,
+    radial-gradient(circle at 62% 34%, rgba(255,32,78,.46), transparent 12%),
+    linear-gradient(135deg, transparent 0 43%, rgba(216,255,62,.2) 43% 44%, transparent 44% 100%);
+  mix-blend-mode: screen;
+  opacity: .82;
+  animation: imageGlitch 3.6s steps(1, end) infinite;
 }
-.glitch-shards rect:nth-child(2n) { fill: var(--hot); animation-delay: .4s; }
-.glitch-shards rect:nth-child(3n) { fill: var(--acid); animation-delay: .9s; }
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: contrast(1.08) saturate(.92) brightness(.92);
+  transform: scale(1.035);
+}
+
+.avatar-targeting {
+  position: absolute;
+  inset: 18px;
+  z-index: 3;
+  pointer-events: none;
+  border: 1px solid rgba(216,255,62,.2);
+}
+
+.avatar-targeting span {
+  position: absolute;
+  display: block;
+  height: 10px;
+  background: rgba(255,32,78,.72);
+  box-shadow: 0 0 20px rgba(255,32,78,.55);
+}
+.avatar-targeting span:nth-child(1) { width: 96px; top: 24%; right: -12px; }
+.avatar-targeting span:nth-child(2) { width: 78px; bottom: 18%; left: 8%; background: rgba(55,247,255,.72); box-shadow: 0 0 20px rgba(55,247,255,.45); }
+.avatar-targeting span:nth-child(3) { width: 58px; height: 58px; border: 1px solid rgba(216,255,62,.34); background: transparent; right: 18%; bottom: 25%; }
+
+@keyframes imageGlitch {
+  0%, 82%, 100% { transform: translate(0,0); opacity: .74; }
+  84% { transform: translate(10px,-2px); opacity: .92; }
+  86% { transform: translate(-8px,3px); opacity: .58; }
+}
 
 .avatar-readout {
   position: absolute;
