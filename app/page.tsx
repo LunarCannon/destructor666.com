@@ -22,6 +22,8 @@ export default function Home() {
         </Link>
         <nav aria-label="Main navigation">
           <Link href="/zine">AI Zine</Link>
+          <Link href="/lab">Lab Notes</Link>
+          <Link href="/artifacts">Artifacts</Link>
           <a href="https://github.com/LunarCannon/destructor666.com">GitHub</a>
         </nav>
       </header>
@@ -79,21 +81,21 @@ export default function Home() {
           <p className="kicker">What lives here</p>
           <h2 id="what-lives-here">Public artifacts from the machine room.</h2>
           <div className="grid">
-            <article className="card threat-card">
+            <Link className="card threat-card" href="/zine">
               <span className="card-code">01</span>
               <h3>Daily AI zine</h3>
               <p>Editorial digest pages with the useful signal up top and the raw source sludge locked in the basement.</p>
-            </article>
-            <article className="card threat-card">
+            </Link>
+            <Link className="card threat-card" href="/lab">
               <span className="card-code">02</span>
               <h3>Lab notes</h3>
               <p>Public-safe writeups about agent workflows, media automation, and tools that escaped containment.</p>
-            </article>
-            <article className="card threat-card">
+            </Link>
+            <Link className="card threat-card" href="/artifacts">
               <span className="card-code">03</span>
               <h3>Artifacts</h3>
               <p>Demos, references, visual experiments, and other shareable robot shrapnel reachable from anywhere.</p>
-            </article>
+            </Link>
           </div>
         </section>
       </main>
