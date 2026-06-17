@@ -110,10 +110,11 @@ main, header, footer { width: min(var(--max), calc(100% - 32px)); margin-inline:
 .nav a { min-height: 44px; display: inline-flex; align-items: center; }
 
 .hero {
+  position: relative;
   padding: clamp(48px, 8vw, 112px) 0 68px;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
-  gap: clamp(30px, 5vw, 72px);
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+  gap: clamp(8px, 2.5vw, 42px);
   align-items: center;
 }
 
@@ -122,7 +123,7 @@ main, header, footer { width: min(var(--max), calc(100% - 32px)); margin-inline:
   border-bottom: 1px solid rgba(55,247,255,.16);
 }
 
-.hero-copy { position: relative; }
+.hero-copy { position: relative; z-index: 4; }
 .hero-copy::before {
   content: "// TERMINAL GOBLIN UPLINK";
   position: absolute;
@@ -157,6 +158,7 @@ h1 {
 
 .glitch-title {
   position: relative;
+  z-index: 5;
   text-transform: uppercase;
   text-wrap: balance;
   text-shadow: 0 0 18px rgba(255,32,78,.18);
@@ -228,6 +230,8 @@ h3 { font-size: 20px; letter-spacing: -0.025em; }
 
 .avatar-panel {
   position: relative;
+  z-index: 1;
+  margin-left: clamp(-110px, -7vw, -38px);
   min-height: 550px;
   padding: 18px;
   overflow: hidden;
@@ -273,25 +277,29 @@ h3 { font-size: 20px; letter-spacing: -0.025em; }
 }
 
 .skull,
+.rear-plate,
+.brow,
 .faceplate,
-.jaw {
+.jaw,
+.chin-guard,
+.temple-blade,
+.cheek {
   fill: url(#chrome);
   stroke: rgba(246,240,223,.88);
   stroke-width: 3;
   stroke-linejoin: round;
 }
 
-.faceplate { fill-opacity: .82; }
-.jaw { fill-opacity: .72; }
+.rear-plate,
+.brow,
+.temple-blade,
+.cheek,
+.chin-guard { fill: url(#gunmetal); }
+.brow { stroke: rgba(255,32,78,.78); filter: drop-shadow(0 0 13px rgba(255,32,78,.22)); }
+.faceplate { fill-opacity: .84; }
+.jaw { fill-opacity: .78; }
 .nose { fill: #050506; stroke: rgba(55,247,255,.38); stroke-width: 3; }
-
-.horn {
-  fill: none;
-  stroke: var(--steel);
-  stroke-width: 18;
-  stroke-linecap: round;
-  filter: drop-shadow(0 0 12px rgba(216,255,62,.18));
-}
+.temple-blade { stroke: rgba(55,247,255,.62); filter: drop-shadow(0 0 14px rgba(55,247,255,.18)); }
 
 .cable {
   fill: none;
@@ -307,6 +315,9 @@ h3 { font-size: 20px; letter-spacing: -0.025em; }
 .eye-live path:first-child { fill: rgba(255,32,78,.35); stroke: var(--hot); }
 .eye-live circle { fill: url(#redhot); }
 .scanner { stroke: var(--hot); stroke-width: 5; stroke-linecap: round; animation: scannerSweep 2.2s ease-in-out infinite; }
+
+.mouth path:first-child { fill: rgba(5,5,6,.72); stroke: rgba(255,32,78,.48); stroke-width: 3; }
+.mouth path:last-child { fill: none; stroke: rgba(216,255,62,.52); stroke-width: 3; stroke-linecap: round; }
 
 .teeth path,
 .damage path {
@@ -473,7 +484,7 @@ h3 { font-size: 20px; letter-spacing: -0.025em; }
 
 @media (max-width: 940px) {
   .hero, .split-grid, .grid { grid-template-columns: 1fr; }
-  .avatar-panel { min-height: 500px; }
+  .avatar-panel { min-height: 500px; margin-left: 0; }
 }
 
 @media (max-width: 680px) {

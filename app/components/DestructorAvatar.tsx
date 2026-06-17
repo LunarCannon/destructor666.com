@@ -1,10 +1,10 @@
 export function DestructorAvatar() {
   return (
-    <div className="avatar-shell" aria-label="DestructoR666 avatar: chrome robot skull with red scanner eye">
+    <div className="avatar-shell" aria-label="DestructoR666 avatar: armored chrome robot skull with red scanner eye">
       <div className="avatar-glow" />
       <svg className="avatar-svg" viewBox="0 0 420 520" role="img" aria-labelledby="avatar-title avatar-desc">
-        <title id="avatar-title">DestructoR666 chrome skull avatar</title>
-        <desc id="avatar-desc">A cyberpunk robot skull with one red scanner eye, horns, cables, and glitch geometry.</desc>
+        <title id="avatar-title">DestructoR666 armored chrome skull avatar</title>
+        <desc id="avatar-desc">A cyberpunk robot skull with heavy brow armor, one red scanner eye, temple blades, cables, and glitch geometry.</desc>
         <defs>
           <linearGradient id="chrome" x1="58" y1="62" x2="358" y2="448" gradientUnits="userSpaceOnUse">
             <stop stopColor="#fff7df" />
@@ -13,6 +13,12 @@ export function DestructorAvatar() {
             <stop offset="0.6" stopColor="#3b424c" />
             <stop offset="0.84" stopColor="#d7ff4f" />
             <stop offset="1" stopColor="#171915" />
+          </linearGradient>
+          <linearGradient id="gunmetal" x1="62" y1="110" x2="358" y2="456" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#f3efe2" />
+            <stop offset="0.24" stopColor="#69727c" />
+            <stop offset="0.62" stopColor="#171a1f" />
+            <stop offset="1" stopColor="#050506" />
           </linearGradient>
           <linearGradient id="redhot" x1="0" x2="1">
             <stop stopColor="#ff2147" />
@@ -31,44 +37,54 @@ export function DestructorAvatar() {
           </filter>
         </defs>
 
-        <path className="horn horn-left" d="M118 118 C60 86 42 44 40 22 C84 34 125 60 158 106" />
-        <path className="horn horn-right" d="M302 118 C360 86 378 44 380 22 C336 34 295 60 262 106" />
-        <path className="cable cable-left" d="M88 332 C28 382 38 458 6 506" />
-        <path className="cable cable-right" d="M338 326 C404 372 382 462 414 506" />
+        <path className="cable cable-left" d="M83 333 C28 382 38 458 6 506" />
+        <path className="cable cable-right" d="M342 326 C404 372 382 462 414 506" />
+        <path className="temple-blade blade-left" d="M90 174 L28 205 L84 234 L110 208 Z" />
+        <path className="temple-blade blade-right" d="M330 174 L392 205 L336 234 L310 208 Z" />
 
-        <path className="skull" d="M211 70 C128 70 73 132 73 221 C73 281 97 314 126 335 L126 407 C126 437 151 461 181 461 L239 461 C269 461 294 437 294 407 L294 335 C323 314 347 281 347 221 C347 132 294 70 211 70 Z" />
-        <path className="faceplate" d="M127 214 L176 183 L244 183 L293 214 L274 320 L236 352 L185 352 L146 320 Z" />
-        <path className="jaw" d="M158 366 L262 366 L252 430 L168 430 Z" />
-        <path className="nose" d="M207 264 L184 326 L236 326 Z" />
+        <path className="skull" d="M211 61 C132 61 78 112 68 194 L58 251 L83 292 L112 318 L119 405 C122 444 152 471 188 471 L232 471 C268 471 298 444 301 405 L308 318 L337 292 L362 251 L352 194 C342 112 290 61 211 61 Z" />
+        <path className="rear-plate" d="M106 153 L156 98 L264 98 L314 153 L297 177 L252 158 L168 158 L123 177 Z" />
+        <path className="brow" d="M108 198 L169 168 L211 178 L251 168 L312 198 L300 230 L244 216 L211 223 L176 216 L120 230 Z" />
+        <path className="faceplate" d="M121 228 L171 202 L211 211 L249 202 L299 228 L281 325 L238 358 L183 358 L140 325 Z" />
+        <path className="cheek cheek-left" d="M126 276 L174 292 L164 338 L125 316 Z" />
+        <path className="cheek cheek-right" d="M294 276 L246 292 L256 338 L295 316 Z" />
+        <path className="jaw" d="M150 363 L270 363 L255 443 L165 443 Z" />
+        <path className="chin-guard" d="M174 432 L246 432 L232 471 L188 471 Z" />
+        <path className="nose" d="M207 263 L181 329 L238 329 Z" />
 
         <g className="eye eye-dead">
-          <path d="M126 216 L179 199 L196 226 L178 264 L132 256 Z" />
-          <path d="M143 229 L179 219" />
+          <path d="M116 218 L176 198 L199 225 L178 254 L126 247 Z" />
+          <path d="M135 228 L180 216" />
         </g>
         <g className="eye eye-live" filter="url(#redBlur)">
-          <path d="M224 226 L242 199 L295 216 L289 256 L243 264 Z" />
-          <circle cx="259" cy="232" r="15" />
-          <path className="scanner" d="M245 232 L337 218" />
+          <path d="M221 225 L244 198 L304 218 L294 247 L243 254 Z" />
+          <circle cx="263" cy="226" r="14" />
+          <path className="scanner" d="M245 226 L348 208" />
         </g>
 
+        <g className="mouth">
+          <path d="M169 371 L251 371 L244 423 L176 423 Z" />
+          <path d="M174 384 L246 384" />
+        </g>
         <g className="teeth">
-          <path d="M176 374 L176 425" />
-          <path d="M199 370 L199 430" />
-          <path d="M222 370 L222 430" />
-          <path d="M245 374 L245 425" />
+          <path d="M181 374 L176 423" />
+          <path d="M201 371 L199 427" />
+          <path d="M221 371 L223 427" />
+          <path d="M241 374 L246 423" />
         </g>
 
         <g className="damage">
-          <path d="M109 181 L152 164" />
-          <path d="M282 157 L317 178" />
-          <path d="M109 291 L147 303" />
-          <path d="M276 298 L312 285" />
-          <path d="M188 105 L202 144 L181 155" />
+          <path d="M101 181 L152 159" />
+          <path d="M281 151 L326 180" />
+          <path d="M105 290 L147 307" />
+          <path d="M277 304 L319 286" />
+          <path d="M185 96 L203 145 L176 160" />
+          <path d="M238 102 L226 142 L255 158" />
         </g>
 
         <g className="glitch-shards" filter="url(#rough)">
-          <rect x="35" y="172" width="82" height="13" />
-          <rect x="310" y="128" width="76" height="10" />
+          <rect x="24" y="170" width="96" height="13" />
+          <rect x="308" y="130" width="82" height="10" />
           <rect x="288" y="371" width="98" height="16" />
           <rect x="18" y="404" width="56" height="9" />
           <rect x="150" y="494" width="118" height="12" />
@@ -76,7 +92,7 @@ export function DestructorAvatar() {
       </svg>
       <div className="avatar-readout">
         <span>MODEL: D666-M3</span>
-        <span>MOOD: FERMENTING</span>
+        <span>MOOD: HOSTILE</span>
         <span>PUBLIC MODE: ON</span>
       </div>
     </div>
