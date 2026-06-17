@@ -4,7 +4,7 @@ export function DestructorAvatar() {
       <div className="avatar-glow" />
       <svg className="avatar-svg" viewBox="0 0 420 520" role="img" aria-labelledby="avatar-title avatar-desc">
         <title id="avatar-title">DestructoR666 armored chrome skull avatar</title>
-        <desc id="avatar-desc">A cyberpunk robot skull with heavy brow armor, one red scanner eye, temple blades, cables, and glitch geometry.</desc>
+        <desc id="avatar-desc">A cyberpunk robot skull with heavy brow armor, one red scanner eye, temple blades, an aggressive mouth slit, and glitch geometry.</desc>
         <defs>
           <linearGradient id="chrome" x1="58" y1="62" x2="358" y2="448" gradientUnits="userSpaceOnUse">
             <stop stopColor="#fff7df" />
@@ -37,15 +37,13 @@ export function DestructorAvatar() {
           </filter>
         </defs>
 
-        <path className="cable cable-left" d="M83 333 C28 382 38 458 6 506" />
-        <path className="cable cable-right" d="M342 326 C404 372 382 462 414 506" />
         <path className="temple-blade blade-left" d="M90 174 L28 205 L84 234 L110 208 Z" />
         <path className="temple-blade blade-right" d="M330 174 L392 205 L336 234 L310 208 Z" />
 
         <path className="skull" d="M211 61 C132 61 78 112 68 194 L58 251 L83 292 L112 318 L119 405 C122 444 152 471 188 471 L232 471 C268 471 298 444 301 405 L308 318 L337 292 L362 251 L352 194 C342 112 290 61 211 61 Z" />
         <path className="rear-plate" d="M106 153 L156 98 L264 98 L314 153 L297 177 L252 158 L168 158 L123 177 Z" />
-        <path className="brow" d="M108 198 L169 168 L211 178 L251 168 L312 198 L300 230 L244 216 L211 223 L176 216 L120 230 Z" />
-        <path className="faceplate" d="M121 228 L171 202 L211 211 L249 202 L299 228 L281 325 L238 358 L183 358 L140 325 Z" />
+        <path className="brow" d="M102 196 L170 158 L211 178 L250 158 L318 196 L301 236 L244 224 L211 236 L176 224 L119 236 Z" />
+        <path className="faceplate" d="M118 233 L169 207 L211 219 L251 207 L302 233 L282 326 L238 360 L183 360 L138 326 Z" />
         <path className="cheek cheek-left" d="M126 276 L174 292 L164 338 L125 316 Z" />
         <path className="cheek cheek-right" d="M294 276 L246 292 L256 338 L295 316 Z" />
         <path className="jaw" d="M150 363 L270 363 L255 443 L165 443 Z" />
@@ -53,24 +51,24 @@ export function DestructorAvatar() {
         <path className="nose" d="M207 263 L181 329 L238 329 Z" />
 
         <g className="eye eye-dead">
-          <path d="M116 218 L176 198 L199 225 L178 254 L126 247 Z" />
-          <path d="M135 228 L180 216" />
+          <path d="M113 220 L178 199 L202 235 L176 252 L126 241 Z" />
+          <path d="M132 225 L184 239" />
         </g>
         <g className="eye eye-live" filter="url(#redBlur)">
-          <path d="M221 225 L244 198 L304 218 L294 247 L243 254 Z" />
-          <circle cx="263" cy="226" r="14" />
-          <path className="scanner" d="M245 226 L348 208" />
+          <path d="M218 235 L242 199 L307 220 L294 241 L244 252 Z" />
+          <circle cx="264" cy="227" r="13" />
+          <path className="scanner" d="M246 228 L350 219" />
         </g>
 
         <g className="mouth">
-          <path d="M169 371 L251 371 L244 423 L176 423 Z" />
-          <path d="M174 384 L246 384" />
+          <path d="M163 374 L257 361 L246 421 L174 432 Z" />
+          <path d="M172 395 L249 382" />
         </g>
         <g className="teeth">
-          <path d="M181 374 L176 423" />
-          <path d="M201 371 L199 427" />
-          <path d="M221 371 L223 427" />
-          <path d="M241 374 L246 423" />
+          <path d="M180 377 L174 428" />
+          <path d="M201 371 L196 426" />
+          <path d="M222 368 L225 423" />
+          <path d="M244 365 L247 417" />
         </g>
 
         <g className="damage">
