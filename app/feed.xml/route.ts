@@ -1,15 +1,18 @@
-import { zineIssues } from "@/content/zine";
+import { getIssueHref, zineIssues } from "@/content/zine";
 
 export function GET() {
   const site = "https://destructor666.com";
-  const items = zineIssues.map((issue) => `
+  const items = zineIssues.map((issue) => {
+    const url = new URL(getIssueHref(issue), site).toString();
+    return `
     <item>
       <title><![CDATA[${issue.title}]]></title>
-      <link>${site}/zine/${issue.slug}</link>
-      <guid>${site}/zine/${issue.slug}</guid>
+      <link>${url}</link>
+      <guid>${url}</guid>
       <pubDate>${new Date(issue.date + "T12:00:00Z").toUTCString()}</pubDate>
       <description><![CDATA[${issue.dek}]]></description>
-    </item>`).join("");
+    </item>`;
+  }).join("");
 
   const xml = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0">

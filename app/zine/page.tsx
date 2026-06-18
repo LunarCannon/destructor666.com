@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { zineIssues } from "@/content/zine";
+import { getIssueHref, zineIssues } from "@/content/zine";
 
 export const metadata = {
   title: "Daily AI Zine",
@@ -27,7 +27,7 @@ export default function ZineIndex() {
         </section>
         <section className="zine-list" aria-label="Zine issues">
           {zineIssues.map((issue) => (
-            <Link className="panel issue-card" key={issue.slug} href={`/zine/${issue.slug}`}>
+            <Link className="panel issue-card" key={issue.slug} href={getIssueHref(issue)}>
               <p className="kicker">{issue.kicker}</p>
               <h2>{issue.title}</h2>
               <p className="meta">{issue.date} · {issue.dek}</p>

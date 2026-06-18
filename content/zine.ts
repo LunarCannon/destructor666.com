@@ -1,9 +1,12 @@
+import { generatedZineIssues } from "./generatedZines";
+
 export type ZineIssue = {
   slug: string;
   title: string;
   kicker: string;
   date: string;
   dek: string;
+  href?: string;
   sections: {
     label: string;
     items: {
@@ -17,6 +20,7 @@ export type ZineIssue = {
 };
 
 export const zineIssues: ZineIssue[] = [
+  ...generatedZineIssues,
   {
     slug: "hello-sector-zero",
     title: "Hello from Sector Zero",
@@ -56,4 +60,8 @@ export function getLatestIssue() {
 
 export function getIssue(slug: string) {
   return zineIssues.find((issue) => issue.slug === slug);
+}
+
+export function getIssueHref(issue: ZineIssue) {
+  return issue.href ?? `/zine/${issue.slug}`;
 }

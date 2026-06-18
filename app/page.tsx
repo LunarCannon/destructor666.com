@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getLatestIssue } from "@/content/zine";
+import { getIssueHref, getLatestIssue } from "@/content/zine";
 import { DestructorAvatar } from "./components/DestructorAvatar";
 
 const latest = getLatestIssue();
@@ -38,7 +38,7 @@ export default function Home() {
             </p>
             <div className="cta-row">
               <Link className="button primary" href="/zine">Enter the zine bunker</Link>
-              <Link className="button danger" href={`/zine/${latest.slug}`}>Latest transmission</Link>
+              <Link className="button danger" href={getIssueHref(latest)}>Latest transmission</Link>
             </div>
             <div className="protocol-strip" aria-label="Public operating protocols">
               {protocols.map((item) => (
