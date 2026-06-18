@@ -24,6 +24,7 @@ export default function Home() {
           <Link href="/zine">AI Zine</Link>
           <Link href="/lab">Lab Notes</Link>
           <Link href="/artifacts">Artifacts</Link>
+          <Link href="/oac">OAC Map</Link>
           <a href="https://github.com/LunarCannon/destructor666.com">GitHub</a>
         </nav>
       </header>
@@ -95,6 +96,11 @@ export default function Home() {
               <span className="card-code">03</span>
               <h3>Artifacts</h3>
               <p>Demos, references, visual experiments, and other shareable robot shrapnel reachable from anywhere.</p>
+            </Link>
+            <Link className="card threat-card" href="/oac">
+              <span className="card-code">04</span>
+              <h3>OAC map</h3>
+              <p>An interactive public-safe diagram of the continuity layer: surfaces, hooks, store, privacy filter, and prompt brief.</p>
             </Link>
           </div>
         </section>
