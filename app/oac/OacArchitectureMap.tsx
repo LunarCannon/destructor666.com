@@ -7,7 +7,8 @@ type NodeKind = "surface" | "gateway" | "hook" | "store" | "engine" | "policy" |
 type FlowNode = {
   id: string;
   title: string;
-  subtitle: string;
+  titleLines: string[];
+  subtitleLines: string[];
   kind: NodeKind;
   x: number;
   y: number;
@@ -28,7 +29,8 @@ const nodes: FlowNode[] = [
   {
     id: "surfaces",
     title: "Surfaces",
-    subtitle: "Telegram · Signal · SMS · CLI · cron · voice",
+    titleLines: ["Surfaces"],
+    subtitleLines: ["Telegram · Signal · SMS", "CLI · cron · voice"],
     kind: "surface",
     x: 36,
     y: 78,
@@ -40,7 +42,8 @@ const nodes: FlowNode[] = [
   {
     id: "gateway",
     title: "Gateway / agent shell",
-    subtitle: "normal model turn still owns the reply",
+    titleLines: ["Gateway /", "agent shell"],
+    subtitleLines: ["model turn owns reply"],
     kind: "gateway",
     x: 326,
     y: 78,
@@ -52,7 +55,8 @@ const nodes: FlowNode[] = [
   {
     id: "hook",
     title: "Gateway hook adapter",
-    subtitle: "agent:start / agent:end boundary",
+    titleLines: ["Gateway hook", "adapter"],
+    subtitleLines: ["agent:start / agent:end"],
     kind: "hook",
     x: 616,
     y: 78,
@@ -64,7 +68,8 @@ const nodes: FlowNode[] = [
   {
     id: "identity",
     title: "Identity + topic stitcher",
-    subtitle: "deterministic aliases, cheap matching",
+    titleLines: ["Identity + topic", "stitcher"],
+    subtitleLines: ["aliases · token match"],
     kind: "engine",
     x: 164,
     y: 290,
@@ -76,7 +81,8 @@ const nodes: FlowNode[] = [
   {
     id: "store",
     title: "Local OAC store",
-    subtitle: "events ledger + rolling state",
+    titleLines: ["Local OAC", "store"],
+    subtitleLines: ["ledger + rolling state"],
     kind: "store",
     x: 454,
     y: 290,
@@ -88,7 +94,8 @@ const nodes: FlowNode[] = [
   {
     id: "privacy",
     title: "Privacy filter",
-    subtitle: "surface policy + sensitivity tiers",
+    titleLines: ["Privacy filter"],
+    subtitleLines: ["surface policy", "sensitivity tiers"],
     kind: "policy",
     x: 744,
     y: 290,
@@ -100,7 +107,8 @@ const nodes: FlowNode[] = [
   {
     id: "digest",
     title: "Digest synthesizer",
-    subtitle: "small structured operating picture",
+    titleLines: ["Digest", "synthesizer"],
+    subtitleLines: ["structured operating pic"],
     kind: "engine",
     x: 246,
     y: 502,
@@ -112,7 +120,8 @@ const nodes: FlowNode[] = [
   {
     id: "brief",
     title: "Continuity brief",
-    subtitle: "bounded Markdown injected into this user turn",
+    titleLines: ["Continuity", "brief"],
+    subtitleLines: ["bounded Markdown", "current user turn"],
     kind: "output",
     x: 536,
     y: 502,
@@ -124,7 +133,8 @@ const nodes: FlowNode[] = [
   {
     id: "smoke",
     title: "Smoke + sync lanes",
-    subtitle: "proof reports and conservative backfill",
+    titleLines: ["Smoke + sync", "lanes"],
+    subtitleLines: ["proof + safe backfill"],
     kind: "artifact",
     x: 826,
     y: 502,
@@ -208,6 +218,10 @@ function labelPosition(link: FlowLink) {
   };
 }
 
+function nodeAriaLabel(node: FlowNode) {
+  return `${node.title}: ${node.subtitleLines.join(" ")}`;
+}
+
 export function OacArchitectureMap() {
   const [activeId, setActiveId] = useState("brief");
   const activeNode = useMemo(() => nodes.find((node) => node.id === activeId) ?? nodes[0], [activeId]);
@@ -284,7 +298,7 @@ export function OacArchitectureMap() {
                 className={`oac-node ${node.kind} ${selected ? "selected" : ""}`}
                 role="button"
                 tabIndex={0}
-                aria-label={`${node.title}: ${node.subtitle}`}
+                aria-label={nodeAriaLabel(node)}
                 onClick={() => setActiveId(node.id)}
                 onKeyDown={(event) => handleKey(event, node.id)}
                 filter={selected ? "url(#nodeGlow)" : undefined}
@@ -292,8 +306,16 @@ export function OacArchitectureMap() {
                 <rect className="node-bg" x={node.x} y={node.y} width={node.w} height={node.h} rx="16" />
                 <rect className="node-face" x={node.x} y={node.y} width={node.w} height={node.h} rx="16" />
                 <text className="node-kind" x={node.x + 18} y={node.y + 27}>{kindLabel[node.kind]}</text>
-                <text className="node-title" x={node.x + 18} y={node.y + 58}>{node.title}</text>
-                <text className="node-subtitle" x={node.x + 18} y={node.y + 84}>{node.subtitle}</text>
+                <text className="node-title" x={node.x + 18} y={node.y + 53}>
+                  {node.titleLines.map((line, index) => (
+                    <tspan key={line} x={node.x + 18} dy={index === 0 ? 0 : 17}>{line}</tspan>
+                  ))}
+                </text>
+                <text className="node-subtitle" x={node.x + 18} y={node.y + (node.titleLines.length > 1 ? 88 : 82)}>
+                  {node.subtitleLines.map((line, index) => (
+                    <tspan key={line} x={node.x + 18} dy={index === 0 ? 0 : 14}>{line}</tspan>
+                  ))}
+                </text>
                 <circle cx={node.x + node.w - 24} cy={node.y + 26} r="6" />
               </g>
             );
