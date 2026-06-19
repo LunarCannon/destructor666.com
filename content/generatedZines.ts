@@ -22,7 +22,7 @@ export const generatedZineIssues: ZineIssue[] = [
           },
           {
             title: "Is it agentic enough? Benchmarking open models on your own tooling",
-            summary: "A post from Hugging Face Blog. Plain version: A source lead with no useful publisher summary. Use the title as the hook, then only open it if the topic matches today’s agent/tooling work: Is it agentic enough? Benchmarking open models on your own tooling.",
+            summary: "A post from Hugging Face Blog. Plain version: A source lead with no useful publisher summary. Title angle: Is it agentic enough? Benchmarking open models on your own tooling. Open it only if that maps to today’s agent/tooling work.",
             whyItMatters: "Evals are how we avoid vibes-only agent work. Useful if it suggests tests we can adapt for Hermes/OAC reliability.",
             link: "https://huggingface.co/blog/is-it-agentic-enough",
             verdict: "skim",
