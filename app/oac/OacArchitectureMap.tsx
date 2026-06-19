@@ -275,17 +275,20 @@ export function OacArchitectureMap() {
           <path d="M 24 44 H 1056" stroke="rgba(255,32,78,.25)" strokeDasharray="7 10" />
           <path d="M 24 646 H 1056" stroke="rgba(55,247,255,.20)" strokeDasharray="7 10" />
 
-          {links.map((link) => {
-            const pos = labelPosition(link);
+          {links.map((link, index) => {
             const isGuard = link.kind === "guard";
             const isArtifact = link.kind === "artifact";
             return (
-              <g className={`oac-link ${isGuard ? "guard" : ""} ${isArtifact ? "artifact" : ""}`} key={`${link.from}-${link.to}`}>
+              <g
+                className={`oac-link ${isGuard ? "guard" : ""} ${isArtifact ? "artifact" : ""}`}
+                key={`${link.from}-${link.to}`}
+                aria-label={`Flow ${index + 1}: ${link.label}`}
+              >
+                <title>{`Flow ${index + 1}: ${link.label}`}</title>
                 <path
                   d={pathForLink(link)}
                   markerEnd={isGuard ? "url(#arrowHot)" : isArtifact ? "url(#arrowAcid)" : "url(#arrowCyan)"}
                 />
-                <text x={pos.x} y={pos.y} textAnchor="middle">{link.label}</text>
               </g>
             );
           })}
@@ -320,7 +323,38 @@ export function OacArchitectureMap() {
               </g>
             );
           })}
+
+          {links.map((link, index) => {
+            const pos = labelPosition(link);
+            const isGuard = link.kind === "guard";
+            const isArtifact = link.kind === "artifact";
+            return (
+              <g
+                className={`oac-link-badge-group ${isGuard ? "guard" : ""} ${isArtifact ? "artifact" : ""}`}
+                key={`badge-${link.from}-${link.to}`}
+                aria-hidden="true"
+              >
+                <circle className="oac-link-badge" cx={pos.x} cy={pos.y - 2} r="14" />
+                <text className="oac-link-number" x={pos.x} y={pos.y + 2} textAnchor="middle">{index + 1}</text>
+              </g>
+            );
+          })}
         </svg>
+      </div>
+
+      <div className="oac-flow-legend" aria-label="Connector legend">
+        <div>
+          <p className="kicker">Connector legend</p>
+          <p>Numbered badges keep the map readable; full flow labels live here instead of fighting the wires.</p>
+        </div>
+        <ol>
+          {links.map((link, index) => (
+            <li key={`${link.from}-${link.to}`}>
+              <span>{index + 1}</span>
+              <strong>{link.label}</strong>
+            </li>
+          ))}
+        </ol>
       </div>
 
       <aside className={`oac-node-panel ${activeNode.kind}`} aria-live="polite">
