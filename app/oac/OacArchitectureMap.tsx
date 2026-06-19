@@ -218,13 +218,31 @@ function labelPosition(link: FlowLink) {
   };
 }
 
+function clamp(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max);
+}
+
+function tooltipBox(label: string, anchor: { x: number; y: number }) {
+  const width = clamp(label.length * 7 + 48, 128, 240);
+  const height = 38;
+  const x = clamp(anchor.x - width / 2, 24, 1080 - width - 24);
+  const aboveY = anchor.y - 58;
+  const belowY = anchor.y + 28;
+  const y = aboveY > 48 ? aboveY : belowY;
+  return { x, y, width, height };
+}
+
 function nodeAriaLabel(node: FlowNode) {
   return `${node.title}: ${node.subtitleLines.join(" ")}`;
 }
 
 export function OacArchitectureMap() {
   const [activeId, setActiveId] = useState("brief");
+  const [activeFlowIndex, setActiveFlowIndex] = useState<number | null>(null);
   const activeNode = useMemo(() => nodes.find((node) => node.id === activeId) ?? nodes[0], [activeId]);
+  const activeFlow = activeFlowIndex === null ? null : links[activeFlowIndex];
+  const activeFlowAnchor = activeFlow ? labelPosition(activeFlow) : null;
+  const activeFlowBox = activeFlow && activeFlowAnchor ? tooltipBox(activeFlow.label, activeFlowAnchor) : null;
 
   function handleKey(event: KeyboardEvent<SVGGElement>, id: string) {
     if (event.key === "Enter" || event.key === " ") {
@@ -330,15 +348,45 @@ export function OacArchitectureMap() {
             const isArtifact = link.kind === "artifact";
             return (
               <g
-                className={`oac-link-badge-group ${isGuard ? "guard" : ""} ${isArtifact ? "artifact" : ""}`}
+                className={`oac-link-badge-group ${isGuard ? "guard" : ""} ${isArtifact ? "artifact" : ""} ${activeFlowIndex === index ? "active" : ""}`}
                 key={`badge-${link.from}-${link.to}`}
-                aria-hidden="true"
+                role="img"
+                tabIndex={0}
+                aria-label={`Flow ${index + 1}: ${link.label}`}
+                onMouseEnter={() => setActiveFlowIndex(index)}
+                onMouseLeave={() => setActiveFlowIndex(null)}
+                onFocus={() => setActiveFlowIndex(index)}
+                onBlur={() => setActiveFlowIndex(null)}
               >
+                <title>{`Flow ${index + 1}: ${link.label}`}</title>
                 <circle className="oac-link-badge" cx={pos.x} cy={pos.y - 2} r="14" />
                 <text className="oac-link-number" x={pos.x} y={pos.y + 2} textAnchor="middle">{index + 1}</text>
               </g>
             );
           })}
+
+          {activeFlow && activeFlowAnchor && activeFlowBox ? (
+            <g className="oac-flow-tooltip" aria-hidden="true">
+              <path
+                className="oac-flow-tooltip-stem"
+                d={`M ${activeFlowAnchor.x} ${activeFlowAnchor.y + 10} L ${activeFlowAnchor.x} ${activeFlowBox.y + activeFlowBox.height}`}
+              />
+              <rect
+                x={activeFlowBox.x}
+                y={activeFlowBox.y}
+                width={activeFlowBox.width}
+                height={activeFlowBox.height}
+                rx="12"
+              />
+              <text
+                x={activeFlowBox.x + activeFlowBox.width / 2}
+                y={activeFlowBox.y + 24}
+                textAnchor="middle"
+              >
+                {activeFlow.label}
+              </text>
+            </g>
+          ) : null}
         </svg>
       </div>
 
