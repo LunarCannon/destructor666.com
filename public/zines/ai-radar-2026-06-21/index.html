@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DestructoR666 AI Digest · 2026-06-21</title>
+<link rel="canonical" href="https://destructor666.com/zines/ai-radar-2026-06-21/">
+<style>
+:root {
+  --bg: #050506;
+  --bg-2: #0b0609;
+  --surface: #111015;
+  --surface-2: #19151f;
+  --paper: #fbf1d7;
+  --paper-2: #fff8e8;
+  --ink: #17130f;
+  --body: #2b241d;
+  --muted: #776b5b;
+  --site-ink: #f6f0df;
+  --site-muted: #a79c93;
+  --line: rgba(23,19,15,.22);
+  --dark-line: rgba(246,240,223,.16);
+  --acid: #d8ff3e;
+  --cyan: #37f7ff;
+  --hot: #ff204e;
+  --amber: #ff8a1c;
+  --green: #47d16c;
+  --shadow: 8px 8px 0 rgba(255,32,78,.82), 12px 12px 0 rgba(55,247,255,.45);
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--site-ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 14% 4%, rgba(255,32,78,.24), transparent 30rem),
+    radial-gradient(circle at 86% 0%, rgba(55,247,255,.18), transparent 28rem),
+    radial-gradient(circle at 54% 55%, rgba(216,255,62,.07), transparent 31rem),
+    linear-gradient(180deg, #050506 0%, #0d070b 48%, #050506 100%);
+  min-height: 100vh;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .28;
+  background:
+    repeating-linear-gradient(180deg, rgba(255,255,255,.09) 0 1px, transparent 1px 5px),
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: auto, 46px 46px, 46px 46px;
+  mix-blend-mode: overlay;
+  mask-image: radial-gradient(circle at 50% 22%, black, transparent 80%);
+  z-index: 20;
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .09;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  mix-blend-mode: screen;
+  z-index: 21;
+}
+a { color: inherit; }
+a:hover { color: var(--hot); }
+.zine { max-width: 1040px; margin: 0 auto; padding: 18px 14px 72px; position: relative; z-index: 1; }
+.cover {
+  min-height: min(86svh, 780px);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  border: 1px solid rgba(255,32,78,.44);
+  box-shadow: 0 24px 110px rgba(0,0,0,.46), inset 0 1px 0 rgba(255,255,255,.08);
+  background:
+    linear-gradient(90deg, rgba(55,247,255,.07) 1px, transparent 1px),
+    linear-gradient(rgba(216,255,62,.045) 1px, transparent 1px),
+    radial-gradient(circle at 16% 12%, rgba(255,32,78,.22), transparent 21rem),
+    radial-gradient(circle at 92% 8%, rgba(55,247,255,.14), transparent 20rem),
+    linear-gradient(140deg, rgba(25,21,31,.98), rgba(5,5,6,.92));
+  background-size: 28px 28px, 28px 28px, auto, auto, auto;
+  padding: clamp(20px, 4vw, 46px);
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, 94% 0, 100% 7%, 100% 100%, 6% 100%, 0 93%);
+}
+.cover::before {
+  content: "D666 // SIGNAL RAG";
+  position: absolute;
+  right: clamp(12px, 3vw, 36px);
+  top: clamp(12px, 3vw, 30px);
+  color: rgba(216,255,62,.36);
+  font: 900 11px/1 var(--mono);
+  letter-spacing: .22em;
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+}
+.cover::after {
+  content: "";
+  position: absolute;
+  width: min(44vw, 420px);
+  height: min(44vw, 420px);
+  right: -120px;
+  bottom: -140px;
+  border: 1px solid rgba(55,247,255,.32);
+  border-radius: 999px;
+  box-shadow: 0 0 0 18px rgba(255,32,78,.08), 0 0 80px rgba(55,247,255,.18);
+}
+.kicker { font: 900 12px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--acid); text-shadow: 0 0 22px rgba(216,255,62,.28); }
+h1 {
+  font-size: clamp(62px, 15vw, 146px);
+  line-height: .78;
+  letter-spacing: -.085em;
+  margin: .24em 0 .18em;
+  max-width: 7ch;
+  text-transform: uppercase;
+  color: var(--site-ink);
+  text-shadow: 3px 0 var(--hot), -3px 0 var(--cyan), 0 0 28px rgba(255,32,78,.22);
+}
+.issue { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font: 800 13px/1.2 var(--mono); color: var(--site-ink); }
+.issue span { border: 1px solid var(--dark-line); padding: 9px 11px; background: rgba(246,240,223,.07); backdrop-filter: blur(10px); }
+.issue span:nth-child(2) { border-color: rgba(55,247,255,.42); color: var(--cyan); }
+.issue span:nth-child(3) { border-color: rgba(255,32,78,.42); color: #ff8ca2; }
+.thesis {
+  max-width: 42rem;
+  font-size: clamp(21px, 4.6vw, 40px);
+  line-height: .98;
+  letter-spacing: -.04em;
+  font-weight: 900;
+  text-wrap: balance;
+  align-self: end;
+  color: var(--site-ink);
+}
+.thesis em { color: var(--acid); font-style: normal; }
+.nav {
+  position: sticky; top: 0; z-index: 5; margin: 18px -14px 0; padding: 10px 14px;
+  display: flex; gap: 8px; overflow-x: auto;
+  background: rgba(5,5,6,.82); backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,32,78,.28);
+  box-shadow: 0 12px 40px rgba(0,0,0,.28);
+}
+.nav a { white-space: nowrap; text-decoration: none; border: 1px solid rgba(246,240,223,.18); padding: 10px 12px; background: rgba(246,240,223,.06); color: var(--site-ink); font: 900 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; min-height: 44px; display: inline-flex; align-items: center; }
+.nav a:hover { border-color: rgba(216,255,62,.55); color: var(--acid); }
+section { padding: 42px 0 0; }
+.section-title { display:flex; align-items:end; justify-content:space-between; gap: 18px; border-bottom: 1px solid rgba(216,255,62,.32); margin-bottom: 18px; padding-bottom: 12px; }
+h2 { font-size: clamp(34px, 8vw, 68px); line-height:.9; letter-spacing:-.06em; margin:0; text-transform: uppercase; color: var(--site-ink); text-wrap: balance; }
+.note { color: var(--site-muted); max-width: 34rem; font-size: 14px; }
+.stats { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+.stat { border: 1px solid rgba(55,247,255,.28); background: linear-gradient(180deg, rgba(246,240,223,.09), rgba(246,240,223,.035)); padding: 16px; box-shadow: inset 0 1px 0 rgba(255,255,255,.08); color: var(--site-ink); }
+.stat b { display:block; font: 950 34px/1 var(--mono); color: var(--acid); }
+.stat small { text-transform: uppercase; letter-spacing: .09em; font-weight: 900; color: var(--site-muted); }
+.counts { display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
+.counts span { border: 1px solid rgba(246,240,223,.16); background: rgba(246,240,223,.06); color: var(--site-muted); padding: 7px 9px; font-size: 12px; }
+.counts b { margin-right:5px; color: var(--site-ink); }
+.grid { display:grid; grid-template-columns: 1fr; gap: 16px; }
+.card {
+  display:grid; grid-template-columns: 58px 1fr; gap: 14px;
+  border: 1px solid rgba(23,19,15,.28);
+  background:
+    linear-gradient(90deg, rgba(255,32,78,.045), transparent 32%),
+    var(--paper);
+  color: var(--ink);
+  box-shadow: 7px 7px 0 rgba(0,0,0,.78);
+  padding: 14px;
+  position: relative;
+}
+.card::before { content:""; position:absolute; inset:0; pointer-events:none; border-top: 3px solid rgba(255,32,78,.68); opacity:.78; }
+.card:nth-child(even) { background: linear-gradient(90deg, rgba(55,247,255,.055), transparent 32%), var(--paper-2); }
+.card.updates { background: #efe4c8; box-shadow: 4px 4px 0 rgba(0,0,0,.68); opacity: .94; }
+.card.updates::before { border-top-color: rgba(119,107,91,.55); }
+.card.updates .rank { background: #3a3129; color: #fff1d8; }
+.card.updates h3 { font-size: clamp(18px, 4vw, 24px); }
+.updates-grid { opacity: .96; }
+.rank { font: 950 17px/1 var(--mono); color: #070406; background: var(--hot); display:grid; place-items:center; min-height: 58px; box-shadow: 3px 3px 0 var(--ink); }
+.meta { color: var(--muted); font: 850 11px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+h3 { margin: 6px 0 8px; font-size: clamp(20px, 4.6vw, 29px); line-height: 1; letter-spacing: -.04em; text-wrap: balance; color: var(--ink); }
+h3 a { text-decoration-thickness: 2px; text-underline-offset: 3px; }
+p { font-size: 15.5px; line-height: 1.46; margin: 0; color: var(--body); }
+.take { margin-top: 10px; padding: 10px 11px; border: 1px solid var(--line); background: rgba(255,248,232,.72); }
+.take b { display: inline-block; font: 950 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: #b10f31; margin-bottom: 6px; }
+.take.why { background: rgba(255,255,255,.72); border-style: dashed; }
+.take.why b { color: #075e66; }
+.raw { margin-top: 9px; color: var(--muted); font-size: 13px; }
+.raw summary { min-height: 36px; cursor: pointer; font: 850 12px/36px var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+.raw p { color: var(--muted); font-size: 13px; border-left: 3px solid rgba(255,32,78,.22); padding-left: 9px; }
+.tags { display:flex; flex-wrap:wrap; gap:6px; margin: 12px 0; }
+.tags span { font: 750 11px/1 var(--mono); border: 1px solid var(--line); border-radius: 999px; padding: 5px 8px; background: rgba(255,255,255,.62); }
+.score { display:grid; grid-template-columns: 1fr auto; gap: 4px 10px; align-items:center; border-top: 1px dashed var(--line); padding-top: 8px; }
+.score span { font-weight: 950; color: #0b7a41; text-transform: uppercase; font-size: 12px; letter-spacing: .05em; }
+.score b { font: 950 22px/1 var(--mono); color: #b10f31; }
+.score small { grid-column: 1 / -1; color: var(--muted); font-size: 11px; }
+.manifesto { border: 1px solid rgba(255,32,78,.38); background: linear-gradient(140deg, rgba(255,32,78,.14), transparent 28%), linear-gradient(180deg, rgba(25,21,31,.96), rgba(5,5,6,.92)); color: var(--site-ink); padding: 20px; box-shadow: 0 20px 90px rgba(0,0,0,.34); }
+.manifesto h2 { color: var(--site-ink); }
+.manifesto p, .manifesto li { color: var(--site-ink); }
+.manifesto ul { padding-left: 1.1rem; }
+.errors { font: 12px/1.5 var(--mono); color: var(--site-muted); }
+.footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid rgba(246,240,223,.16); color: var(--site-muted); font-size: 12px; }
+.actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+button { min-height:44px; border:1px solid rgba(246,240,223,.18); background: var(--acid); color:#100307; box-shadow:4px 4px 0 rgba(255,32,78,.78); font-weight:950; padding: 10px 12px; font-family: var(--mono); text-transform: uppercase; letter-spacing:.06em; }
+button:nth-child(2) { background: rgba(246,240,223,.08); color: var(--site-ink); box-shadow: 4px 4px 0 rgba(55,247,255,.38); }
+button:active { transform: translate(2px,2px); box-shadow:1px 1px 0 rgba(255,32,78,.78); }
+@media (min-width: 760px) {
+  .grid.two { grid-template-columns: 1fr 1fr; }
+  .stats { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 620px) {
+  .zine { padding-left: 10px; padding-right: 10px; }
+  .cover { min-height: 72svh; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  .cover::before { display:none; }
+  .card { grid-template-columns: 1fr; box-shadow: 4px 4px 0 rgba(0,0,0,.78); }
+  .rank { width:58px; min-height:40px; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .section-title { display:block; }
+  .note { margin-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+@media print {
+  .nav, .actions { display:none; }
+  body { background:white; color:#111; }
+  body::before, body::after { display:none; }
+  .cover, .manifesto { background:white; color:#111; border-color:#111; clip-path:none; box-shadow:none; }
+  .cover h1, h2, .thesis, .manifesto h2, .manifesto p, .manifesto li { color:#111; text-shadow:none; }
+  .card, .stat { box-shadow:none; break-inside: avoid; }
+  .footer { color:#444; border-top-color:#111; }
+}
+</style>
+</head>
+<body>
+<main class="zine">
+  <header class="cover">
+    <div>
+      <div class="kicker">DestructoR666 AI Digest · Free-source v0.3 no-repeat edit</div>
+      <h1>Signal<br>Rag</h1>
+      <div class="issue">
+        <span>Jun 21, 2026</span>
+        <span>63 leads scanned</span>
+        <span>4 sources</span>
+      </div>
+    </div>
+    <div class="thesis">A tiny anti-slop zine for <em>agents, tools, model ops, and actually useful AI weirdness</em>. No X API toll paid.</div>
+    <div class="actions">
+      <button onclick="window.print()">Print / Save PDF</button>
+      <button onclick="navigator.share ? navigator.share({title:document.title,url:location.href}) : alert('Share from your browser menu')">Share</button>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Sections">
+    <a href="#front">Editor picks</a><a href="#articles">Articles / research</a><a href="#updates">Releases</a><a href="#radar">Stats</a><a href="#method">Method</a><a href="#logs">Logs</a>
+  </nav>
+
+  <section id="front">
+    <div class="section-title"><h2>Editor picks</h2><div class="note">Thinking, experiments, papers, and opinionated field notes first. Releases are useful, but they live downstairs now.</div></div>
+    <div class="grid">
+        <article class="card articles" data-kind="hn" data-score="57.8">
+          <div class="rank">#01</div>
+          <div class="card-main">
+            <div class="meta"><b>Hacker News</b> · hn · Jun 20</div>
+            <h3><a href="https://www.persona-chat.dev/">Show HN: Persona.js – a vanilla-JS agent UI library with native WebMCP (MIT)</a></h3>
+            <div class="take"><b>Editor's read</b><p>A community-submitted project/thread. Plain version: Persona is an open-source, themeable AI chat widget you can add to any website in minutes.</p></div>
+            <div class="take why"><b>Why you might care</b><p>MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Persona is an open-source, themeable AI chat widget you can add to any website in minutes. SSE streaming, agent loops, tool use, and style isolation: zero framework dependencies.</p></details>
+            <div class="tags"><span>hn</span><span>Claude Code agent</span><span>deep-summary</span></div>
+            <div class="score"><span>read</span><b>57.8</b><small>agent, mcp, tool use, claude code</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="hn" data-score="48.8">
+          <div class="rank">#02</div>
+          <div class="card-main">
+            <div class="meta"><b>Hacker News</b> · hn · Jun 19</div>
+            <h3><a href="https://news.ycombinator.com/item?id=48601134">Just made an app and MCP Server to convert Markdown to Google Docs</a></h3>
+            <div class="take"><b>Editor's read</b><p>A community-submitted project/thread. A title-first lead about: Just made an app and MCP Server to convert Markdown to Google Docs. Skim it only if that maps to current agent/tooling work. Treat it as an early smoke signal, not a verdict. HN: 2 points, 1 comments. Query: Claude Code agent.</p></div>
+            <div class="take why"><b>Why you might care</b><p>MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>HN: 2 points, 1 comments. Query: Claude Code agent.</p></details>
+            <div class="tags"><span>hn</span><span>Claude Code agent</span></div>
+            <div class="score"><span>read</span><b>48.8</b><small>agent, mcp, claude code</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="hn" data-score="44.0">
+          <div class="rank">#03</div>
+          <div class="card-main">
+            <div class="meta"><b>Hacker News</b> · hn · Apr 22</div>
+            <h3><a href="https://github.com/mohidbt/api-ingest">Show HN: API Ingest – Agentic Search (Inter) API Docs</a></h3>
+            <div class="take"><b>Editor's read</b><p>A community-submitted project/thread. Plain version: Handy MCP that converts API specs (OpenAPI YAML/JSON, RAML, WSDL, GraphQL, API Blueprint) into LLM-friendly markdown structures; focusing on token-efficiency and precision.</p></div>
+            <div class="take why"><b>Why you might care</b><p>MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Handy MCP that converts API specs (OpenAPI YAML/JSON, RAML, WSDL, GraphQL, API Blueprint) into LLM-friendly markdown structures; focusing on token-efficiency and precision.</p></details>
+            <div class="tags"><span>hn</span><span>LLM eval benchmark</span><span>deep-summary</span></div>
+            <div class="score"><span>read</span><b>44.0</b><small>agent, mcp, eval, benchmark</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="paper" data-score="31.0">
+          <div class="rank">#04</div>
+          <div class="card-main">
+            <div class="meta"><b>arXiv</b> · paper · Jun 18</div>
+            <h3><a href="https://arxiv.org/abs/2606.20558v1">Observation of electroweak production of pairs of Z bosons in proton-proton collisions at 13 TeV</a></h3>
+            <div class="take"><b>Editor's read</b><p>A research paper. In human terms: The first evidence of electroweak (EW) production of pairs of Z bosons in association with two jets (jj) in the final state ZZjj $\to$ $\ell\ellνν$jj, where $\ell$ = e, $μ$, is reported by the CMS experiment.</p></div>
+            <div class="take why"><b>Why you might care</b><p>This maps directly onto OAC: what agents remember, what they should forget, and how not to build a cursed context landfill.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>The first evidence of electroweak (EW) production of pairs of Z bosons in association with two jets (jj) in the final state ZZjj $\to$ $\ell\ellνν$jj, where $\ell$ = e, $μ$, is reported by the CMS experiment. The analysis is based on a data sample of proton-proton (pp) collisions at $\sqrt{s}$ = 13 TeV, corresponding to an integrated luminosity of 138 fb$^{-1}$. Events are selected by requiring exactly two leptons o…</p></details>
+            <div class="tags"><span>paper</span><span>large language model agents memory</span><span>hep-ex</span></div>
+            <div class="score"><span>paper shelf</span><b>31.0</b><small>agent, agents, memory</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="paper" data-score="24.0">
+          <div class="rank">#05</div>
+          <div class="card-main">
+            <div class="meta"><b>arXiv</b> · paper · Jun 18</div>
+            <h3><a href="https://arxiv.org/abs/2606.20557v1">Optimal Deterministic Multicalibration and Omniprediction</a></h3>
+            <div class="take"><b>Editor's read</b><p>A research paper. In human terms: A model is multicalibrated on a collection of group weights $G$ if it is calibrated -- i.e.</p></div>
+            <div class="take why"><b>Why you might care</b><p>Probably not bedtime reading, but papers can reveal new primitives before they become tools. Skim the abstract; deep-read only if it smells buildable.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>A model is multicalibrated on a collection of group weights $G$ if it is calibrated -- i.e. unbiased even conditional on its prediction -- not just overall, but also after reweighting contexts by each $g \in G$. It is a useful property for many downstream applications and is a basic desideratum of trustworthy machine learning. Before this work, all predictors known to attain the minimax-optimal $\widetilde O(\vareps…</p></details>
+            <div class="tags"><span>paper</span><span>agentic AI tool use</span><span>cs.LG</span><span>math.ST</span></div>
+            <div class="score"><span>paper shelf</span><b>24.0</b><small>agent, tool use</small></div>
+          </div>
+        </article>
+        </div>
+  </section>
+
+  <section id="articles">
+    <div class="section-title"><h2>Articles / research / opinions</h2><div class="note">The stuff people are thinking, trying, arguing, and building with the tech. This is the main read pile.</div></div>
+    <div class="grid two">
+        <article class="card articles" data-kind="paper" data-score="24.0">
+          <div class="rank">#06</div>
+          <div class="card-main">
+            <div class="meta"><b>arXiv</b> · paper · Jun 18</div>
+            <h3><a href="https://arxiv.org/abs/2606.20556v1">Thinking in Boxes: 3D Editing in Real Images Made Easy</a></h3>
+            <div class="take"><b>Editor's read</b><p>A research paper. In human terms: Text and 2D-conditioning interfaces provide weak, ambiguous control over spatial transformations in image editing -- particularly under large object motions and camera changes.</p></div>
+            <div class="take why"><b>Why you might care</b><p>Probably not bedtime reading, but papers can reveal new primitives before they become tools. Skim the abstract; deep-read only if it smells buildable.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Text and 2D-conditioning interfaces provide weak, ambiguous control over spatial transformations in image editing -- particularly under large object motions and camera changes. Prior work has used 3D primitives such as boxes, but only as loose conditioning signals indicating approximate object location rather than specifying the transformation. We instead use 3D boxes as structured specifications: the user provides…</p></details>
+            <div class="tags"><span>paper</span><span>agentic AI tool use</span><span>cs.CV</span></div>
+            <div class="score"><span>paper shelf</span><b>24.0</b><small>agent, tool use</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="feed" data-score="18.0">
+          <div class="rank">#07</div>
+          <div class="card-main">
+            <div class="meta"><b>Google DeepMind Blog</b> · feed · Jun 10</div>
+            <h3><a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/">Investing in multi-agent AI safety research</a></h3>
+            <div class="take"><b>Editor's read</b><p>A post from Google DeepMind Blog. Plain version: Google DeepMind and partners announce a $10M funding call for multi-agent safety research.</p></div>
+            <div class="take why"><b>Why you might care</b><p>Kept because it matched the radar’s AI/agent/tooling filters. Skim title + source first; open only if it lines up with current Hermes/OAC work.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Google DeepMind and partners announce a $10M funding call for multi-agent safety research.</p></details>
+            <div class="tags"><span>research</span><span>models</span></div>
+            <div class="score"><span>maybe</span><b>18.0</b><small>feed</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="feed" data-score="18.0">
+          <div class="rank">#08</div>
+          <div class="card-main">
+            <div class="meta"><b>Google DeepMind Blog</b> · feed · Jun 9</div>
+            <h3><a href="https://deepmind.google/blog/fluid-natural-voice-translation-with-gemini-35-live-translate/">Fluid, natural voice translation with Gemini 3.5 Live Translate</a></h3>
+            <div class="take"><b>Editor's read</b><p>A post from Google DeepMind Blog. Plain version: Gemini 3.5 Live Translate brings near real-time, natural speech translation to Google AI Studio, Google Translate and Google Meet.</p></div>
+            <div class="take why"><b>Why you might care</b><p>Kept because it matched the radar’s AI/agent/tooling filters. Skim title + source first; open only if it lines up with current Hermes/OAC work.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Gemini 3.5 Live Translate brings near real-time, natural speech translation to Google AI Studio, Google Translate and Google Meet.</p></details>
+            <div class="tags"><span>research</span><span>models</span></div>
+            <div class="score"><span>maybe</span><b>18.0</b><small>feed</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="feed" data-score="18.0">
+          <div class="rank">#09</div>
+          <div class="card-main">
+            <div class="meta"><b>Google DeepMind Blog</b> · feed · Jun 9</div>
+            <h3><a href="https://deepmind.google/blog/introducing-gemma-4-12b-a-unified-encoder-free-multimodal-model/">Introducing Gemma 4 12B: a unified, encoder-free multimodal model</a></h3>
+            <div class="take"><b>Editor's read</b><p>A post from Google DeepMind Blog. Plain version: An overview of Gemma 4 12B, a model designed to bring high-performance multimodal intelligence directly to your laptop.</p></div>
+            <div class="take why"><b>Why you might care</b><p>Kept because it matched the radar’s AI/agent/tooling filters. Skim title + source first; open only if it lines up with current Hermes/OAC work.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>An overview of Gemma 4 12B, a model designed to bring high-performance multimodal intelligence directly to your laptop.</p></details>
+            <div class="tags"><span>research</span><span>models</span><span>deep-summary</span></div>
+            <div class="score"><span>maybe</span><b>18.0</b><small>feed</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="hn" data-score="43.7">
+          <div class="rank">#10</div>
+          <div class="card-main">
+            <div class="meta"><b>Hacker News</b> · hn · Jun 20</div>
+            <h3><a href="https://limenedge.com/docs/getting-started">Show HN: I built a middleware agent that turns PLC data into REST/gRPC APIs</a></h3>
+            <div class="take"><b>Editor's read</b><p>A community-submitted project/thread. Plain version: Limen Edge is a self-hosted edge agent that turns raw PLC data into clean REST and gRPC APIs.</p></div>
+            <div class="take why"><b>Why you might care</b><p>MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Limen Edge is a self-hosted edge agent that turns raw PLC data into clean REST and gRPC APIs. Modbus TCP, OPC UA, EtherNet/IP. No cloud required.</p></details>
+            <div class="tags"><span>hn</span><span>MCP agent LLM</span><span>deep-summary</span></div>
+            <div class="score"><span>read</span><b>43.7</b><small>agent, mcp</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="hn" data-score="43.3">
+          <div class="rank">#11</div>
+          <div class="card-main">
+            <div class="meta"><b>Hacker News</b> · hn · Jun 20</div>
+            <h3><a href="https://www.argusred.com/cli">Show HN: We post-trained a model that pen tests instead of refusing</a></h3>
+            <div class="take"><b>Editor's read</b><p>A community-submitted project/thread. Plain version: Audit your code with a read-only Security Scan, or run a gated Pen Test against systems you authorise.</p></div>
+            <div class="take why"><b>Why you might care</b><p>HN is noisy, but comments surface implementation pain fast. Good for spotting whether a shiny thing survives contact with engineers.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Audit your code with a read-only Security Scan, or run a gated Pen Test against systems you authorise. Same CLI, two modes. Free on repos you own; pen test by request.</p></details>
+            <div class="tags"><span>hn</span><span>AI agents tool use</span><span>deep-summary</span></div>
+            <div class="score"><span>read</span><b>43.3</b><small>agent, agents, tool use</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="hn" data-score="42.2">
+          <div class="rank">#12</div>
+          <div class="card-main">
+            <div class="meta"><b>Hacker News</b> · hn · Jun 19</div>
+            <h3><a href="https://colossee.com">Show HN: Timestamp and provenance records for AI-assisted creative work</a></h3>
+            <div class="take"><b>Editor's read</b><p>A community-submitted project/thread. Plain version: Create timestamped public proof for AI-assisted work before you publish, pitch, or deliver it.</p></div>
+            <div class="take why"><b>Why you might care</b><p>HN is noisy, but comments surface implementation pain fast. Good for spotting whether a shiny thing survives contact with engineers.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Create timestamped public proof for AI-assisted work before you publish, pitch, or deliver it.</p></details>
+            <div class="tags"><span>hn</span><span>AI agents tool use</span><span>deep-summary</span></div>
+            <div class="score"><span>read</span><b>42.2</b><small>agent, agents, tool use</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="hn" data-score="40.8">
+          <div class="rank">#13</div>
+          <div class="card-main">
+            <div class="meta"><b>Hacker News</b> · hn · Jun 18</div>
+            <h3><a href="https://github.com/xyTom/coding-tools-mcp">Show HN: Coding Tools MCP – Give any LLM agent the ability to code</a></h3>
+            <div class="take"><b>Editor's read</b><p>A community-submitted project/thread. Plain version: Coding Tools MCP is a model-neutral coding-agent runtime MCP server.</p></div>
+            <div class="take why"><b>Why you might care</b><p>MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Coding Tools MCP is a model-neutral coding-agent runtime MCP server. It exposes local coding primitives to any MCP client:</p></details>
+            <div class="tags"><span>hn</span><span>MCP agent LLM</span><span>deep-summary</span></div>
+            <div class="score"><span>skim</span><b>40.8</b><small>agent, mcp</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="hn" data-score="37.0">
+          <div class="rank">#14</div>
+          <div class="card-main">
+            <div class="meta"><b>Hacker News</b> · hn · May 19</div>
+            <h3><a href="https://github.com/antoinezambelli/forge">Show HN: Forge – Guardrails take an 8B model from 53% to 99% on agentic tasks</a></h3>
+            <div class="take"><b>Editor's read</b><p>A community-submitted project/thread. Plain version: A Python framework for self-hosted LLM tool-calling and multi-step agentic workflows - antoinezambelli/forge</p></div>
+            <div class="take why"><b>Why you might care</b><p>Evals are how we avoid vibes-only agent work. Useful if it suggests tests we can adapt for Hermes/OAC reliability.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>A Python framework for self-hosted LLM tool-calling and multi-step agentic workflows - antoinezambelli/forge</p></details>
+            <div class="tags"><span>hn</span><span>LLM eval benchmark</span><span>deep-summary</span></div>
+            <div class="score"><span>skim</span><b>37.0</b><small>agent, eval, benchmark, workflow</small></div>
+          </div>
+        </article>
+        </div>
+  </section>
+
+  <section id="updates">
+    <div class="section-title"><h2>Releases / software updates</h2><div class="note">Important for staying current, but intentionally below the longform material. Changelogs are seasoning, not dinner.</div></div>
+    <div class="grid two updates-grid">
+        <article class="card updates" data-kind="release" data-score="57.0">
+          <div class="rank">#01</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Jun 19</div>
+            <h3><a href="https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.19">Hermes Agent: Hermes Agent v0.17.0 (v2026.6.19)</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from Hermes Agent. Plain version: The Reach Release. v0.16.0 put Hermes on your desktop. v0.17.0 is about how far that reach extends — across new places to…</p></div>
+            <div class="take why"><b>Why you might care</b><p>Directly relevant to your agent stack. This can affect Hermes behavior, upgrade timing, plugins, gateway surfaces, or ideas worth stealing for OAC/DestructoR666.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p># Hermes Agent v0.17.0 (v2026.6.19) **Release Date:** June 19, 2026 **Since v0.16.0:** ~1,475 commits · ~800 merged PRs · 1,693 files changed · 235,390 insertions · 50,730 deletions · 300+ issues closed · 245 community contributors &gt; **The Reach Release.** v0.16.0 put Hermes on your desktop. v0.17.0 is about how far that reach extends — across new places to…</p></details>
+            <div class="tags"><span>hermes</span><span>agent-ops</span><span>NousResearch/hermes-agent</span></div>
+            <div class="score"><span>watch release</span><b>57.0</b><small>hermes, hermes</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="51.0">
+          <div class="rank">#02</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · May 26</div>
+            <h3><a href="https://github.com/openai/openai-agents-python/releases/tag/v0.17.4">OpenAI Agents Python: v0.17.4</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from OpenAI Agents Python. Plain version: feat: support Realtime custom voice objects by @lionel-oai in * fix: #3459 add opt-in recovery for missing function tools by @seratch in * fix: apply hardened http client default to MCP SSE transport by @ioleksiuk in</p></div>
+            <div class="take why"><b>Why you might care</b><p>Competitive intel: how OpenAI thinks agent SDKs should work, where Hermes is ahead/behind, and patterns we might borrow without joining the mothership.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>## What&#x27;s Changed * feat: support Realtime custom voice objects by @lionel-oai in https://github.com/openai/openai-agents-python/pull/3473 * fix: #3459 add opt-in recovery for missing function tools by @seratch in https://github.com/openai/openai-agents-python/pull/3461 * fix: apply hardened http client default to MCP SSE transport by @ioleksiuk in https://…</p></details>
+            <div class="tags"><span>agents</span><span>sdk</span><span>openai/openai-agents-python</span></div>
+            <div class="score"><span>watch release</span><b>51.0</b><small>agent, agents, mcp, openai agents</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="48.0">
+          <div class="rank">#03</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Jun 5</div>
+            <h3><a href="https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.5">Hermes Agent: Hermes Agent v0.16.0 (2026.6.5) — The Surface Release</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from Hermes Agent. Plain version: The Surface Release. Hermes meets you wherever you work. A brand-new na…</p></div>
+            <div class="take why"><b>Why you might care</b><p>Directly relevant to your agent stack. This can affect Hermes behavior, upgrade timing, plugins, gateway surfaces, or ideas worth stealing for OAC/DestructoR666.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p># Hermes Agent v0.16.0 (v2026.6.5) **Release Date:** June 5, 2026 **Since v0.15.2:** 874 commits · 542 merged PRs · 1,962 files changed · 205,216 insertions · 46,217 deletions · 399 issues closed (2 P0, 62 P1, 16 security-tagged) · 170 community contributors (including co-authors) &gt; **The Surface Release.** Hermes meets you wherever you work. A brand-new na…</p></details>
+            <div class="tags"><span>hermes</span><span>agent-ops</span><span>NousResearch/hermes-agent</span></div>
+            <div class="score"><span>watch release</span><b>48.0</b><small>hermes, hermes</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="38.0">
+          <div class="rank">#04</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Jun 19</div>
+            <h3><a href="https://github.com/openai/openai-agents-python/releases/tag/v0.17.6">OpenAI Agents Python: v0.17.6</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from OpenAI Agents Python. Plain version: feat: add pre-approval tool input guardrails by @seratch in * feat: add SDK-only custom data for tool outputs by @seratch in * fix: enforce the documented strict JSON-compatible contract for #3486 by @siddiksawani in</p></div>
+            <div class="take why"><b>Why you might care</b><p>Competitive intel: how OpenAI thinks agent SDKs should work, where Hermes is ahead/behind, and patterns we might borrow without joining the mothership.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>## What&#x27;s Changed * feat: add pre-approval tool input guardrails by @seratch in https://github.com/openai/openai-agents-python/pull/3487 * feat: add SDK-only custom data for tool outputs by @seratch in https://github.com/openai/openai-agents-python/pull/3486 * fix: enforce the documented strict JSON-compatible contract for #3486 by @siddiksawani in https://…</p></details>
+            <div class="tags"><span>agents</span><span>sdk</span><span>openai/openai-agents-python</span></div>
+            <div class="score"><span>skim changelog</span><b>38.0</b><small>agents, openai agents</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="37.3">
+          <div class="rank">#05</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Jun 18</div>
+            <h3><a href="https://github.com/langchain-ai/langgraph/releases/tag/1.2.6">LangGraph: langgraph==1.2.6</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from LangGraph. Plain version: 1.2.5 * release(langgraph): 1.2.6 (#8139) * fix: nested subgraph inherits parent checkpoint_ns (regression in 1.2.3) (#8053) * fix: cancel running subgraphs on v3 stream abort [closes #8029] (#8057) * release(cli): 0.4.30 (#8101)…</p></div>
+            <div class="take why"><b>Why you might care</b><p>Useful as a contrast model for workflow/stateful agents. Even if we do not adopt it, it exposes design patterns and footguns for OAC-style continuity.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Changes since 1.2.5 * release(langgraph): 1.2.6 (#8139) * fix: nested subgraph inherits parent checkpoint_ns (regression in 1.2.3) (#8053) * fix: cancel running subgraphs on v3 stream abort [closes #8029] (#8057) * release(cli): 0.4.30 (#8101) * docs: standardize package `README.md` structure (#8064) * chore(deps): bump tornado from 6.5.5 to 6.5.6 in /libs/…</p></details>
+            <div class="tags"><span>agents</span><span>workflow</span><span>langchain-ai/langgraph</span></div>
+            <div class="score"><span>skim changelog</span><b>37.3</b><small>agents, workflow</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="37.0">
+          <div class="rank">#06</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Apr 1</div>
+            <h3><a href="https://github.com/modelcontextprotocol/typescript-sdk/releases/tag/%40modelcontextprotocol/node%402.0.0-alpha.1">MCP TypeScript SDK: @modelcontextprotocol/node@2.0.0-alpha.1</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from MCP TypeScript SDK. Plain version: Patch Changes - #1504 327243c Thanks @corvid-agent!</p></div>
+            <div class="take why"><b>Why you might care</b><p>MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>### Patch Changes - [#1504](https://github.com/modelcontextprotocol/typescript-sdk/pull/1504) [`327243c`](https://github.com/modelcontextprotocol/typescript-sdk/commit/327243cebd96e07686c88f7fa9ca22a5a7a7993d) Thanks [@corvid-agent](https://github.com/corvid-agent)! - Add missing `hono` peer dependency to `@modelcontextprotocol/node`. The package already de…</p></details>
+            <div class="tags"><span>mcp</span><span>tools</span><span>modelcontextprotocol/typescript-sdk</span></div>
+            <div class="score"><span>skim changelog</span><b>37.0</b><small>agent, mcp</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="33.7">
+          <div class="rank">#07</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Jun 16</div>
+            <h3><a href="https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.0.0a2">MCP Python SDK: v2.0.0a2</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from MCP Python SDK. Plain version: Full 2026-07-28 types added…</p></div>
+            <div class="take why"><b>Why you might care</b><p>MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Second v2 alpha. Pre-releases are opt-in only; `pip install mcp` still resolves to the stable 1.x line. ```bash pip install mcp==2.0.0a2 # or uv add &quot;mcp==2.0.0a2&quot; ``` See the [migration guide](https://github.com/modelcontextprotocol/python-sdk/blob/main/docs/migration.md) for the full list of breaking changes. ## Highlights ### Full 2026-07-28 types added…</p></details>
+            <div class="tags"><span>mcp</span><span>tools</span><span>modelcontextprotocol/python-sdk</span></div>
+            <div class="score"><span>skim changelog</span><b>33.7</b><small>mcp</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="33.7">
+          <div class="rank">#08</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Jun 16</div>
+            <h3><a href="https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.28.0">MCP Python SDK: v1.28.0</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from MCP Python SDK. Plain version: Deprecations Two API surfaces now emit DeprecationWarning ahead of their removal in v2.</p></div>
+            <div class="take why"><b>Why you might care</b><p>MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>## Deprecations Two API surfaces now emit `DeprecationWarning` ahead of their removal in v2. Nothing is removed in 1.x, and the warnings fire only when the deprecated API is *called* - importing the modules stays silent. - **WebSocket transport** - `mcp.client.websocket.websocket_client` and `mcp.server.websocket.websocket_server`. WebSocket was never part…</p></details>
+            <div class="tags"><span>mcp</span><span>tools</span><span>modelcontextprotocol/python-sdk</span></div>
+            <div class="score"><span>skim changelog</span><b>33.7</b><small>mcp</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="33.6">
+          <div class="rank">#09</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Jun 16</div>
+            <h3><a href="https://github.com/langchain-ai/langgraph/releases/tag/cli%3D%3D0.4.30">LangGraph: langgraph-cli==0.4.30</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from LangGraph. Plain version: cli==0.4.29 * release(cli): 0.4.30 (#8101) * feat(cli): support compatible api version ranges (#8023) * docs: standardize package README.md structure (#8064)</p></div>
+            <div class="take why"><b>Why you might care</b><p>Useful as a contrast model for workflow/stateful agents. Even if we do not adopt it, it exposes design patterns and footguns for OAC-style continuity.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Changes since cli==0.4.29 * release(cli): 0.4.30 (#8101) * feat(cli): support compatible api version ranges (#8023) * docs: standardize package `README.md` structure (#8064)</p></details>
+            <div class="tags"><span>agents</span><span>workflow</span><span>langchain-ai/langgraph</span></div>
+            <div class="score"><span>skim changelog</span><b>33.6</b><small>agents, workflow</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="30.0">
+          <div class="rank">#10</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Apr 1</div>
+            <h3><a href="https://github.com/modelcontextprotocol/typescript-sdk/releases/tag/%40modelcontextprotocol/server%402.0.0-alpha.2">MCP TypeScript SDK: @modelcontextprotocol/server@2.0.0-alpha.2</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from MCP TypeScript SDK. Plain version: Patch Changes - #1840 424cbae Thanks @KKonstantinov!</p></div>
+            <div class="take why"><b>Why you might care</b><p>MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>### Patch Changes - [#1840](https://github.com/modelcontextprotocol/typescript-sdk/pull/1840) [`424cbae`](https://github.com/modelcontextprotocol/typescript-sdk/commit/424cbaeee13b7fe18d38048295135395b9ad81bb) Thanks [@KKonstantinov](https://github.com/KKonstantinov)! - tsdown exports resolution fix</p></details>
+            <div class="tags"><span>mcp</span><span>tools</span><span>modelcontextprotocol/typescript-sdk</span></div>
+            <div class="score"><span>skim changelog</span><b>30.0</b><small>mcp</small></div>
+          </div>
+        </article>
+        </div>
+  </section>
+
+  <section id="radar">
+    <div class="section-title"><h2>Radar stats</h2><div class="note">V0 uses dumb-but-transparent scoring. Future versions can add LLM judgment after collection is bounded.</div></div>
+    <div class="stats">
+      <div class="stat"><b>63</b><small>total leads</small></div>
+      <div class="stat"><b>24</b><small>printed</small></div>
+      <div class="stat"><b>4</b><small>sources hit</small></div>
+      <div class="stat"><b>$0</b><small>X API spend</small></div>
+    </div>
+    <div class="counts"><span><b>9</b>feed</span><span><b>20</b>hn</span><span><b>4</b>paper</span><span><b>30</b>release</span></div>
+  </section>
+
+  <section id="method" class="manifesto">
+    <h2>Editorial stance</h2>
+    <p><b>Twitter is a goblin with binoculars, not the editorial board.</b> V0 watches free sources first: RSS, GitHub, HN, arXiv. Articles, research, and opinionated field notes get top billing; releases are parked lower because staying current matters, but changelog spelunking is not a personality.</p>
+    <ul>
+      <li>Promote: people thinking/doing/building with agents, MCP, memory/continuity, evals, local inference, and practical engineering.</li>
+      <li>Separate: vendor releases and software updates live in their own section below the read pile.</li>
+      <li>Demote: engagement bait, vague launch confetti, crypto price sewage, “10x” sludge.</li>
+      <li>Suppress: article/research/opinion links already printed in a recent issue, so the next issue does not become yesterday wearing a fake mustache.</li>
+      <li>Summarize: fetch linked-page descriptions when feed summaries are blank/title-only, then fall back to title-aware editorial blurbs instead of copy-pasting the headline.</li>
+      <li>Next useful upgrade: a slower LLM editor pass that deep-reads only the top candidates and writes sharper “read/skim/ignore” calls.</li>
+    </ul>
+  </section>
+
+  <section id="logs">
+    <div class="section-title"><h2>Collector logs</h2><div class="note">Receipts and failures. The web remains held together by raccoon string.</div></div>
+    <ul class="errors"><li>feed:Anthropic News: HTTP 404</li><li>summary:Hacker News: Ask HN: Do you use Claude Code, Codex, or something else?: HTTP 429</li><li>summary:Hacker News: Ask HN: Would you let your AI coding agent profile and optimize autono: HTTP 429</li><li>summary:Hacker News: Bad MCP design costs your agent 5x more tokens: HTTP 429</li><li>summary:Hacker News: How to become an AI infrastructure engineer?: HTTP 429</li><li>summary:Hacker News: I made an Time-Based AI coding agent: HTTP 429</li><li>summary:Hacker News: Just made an app and MCP Server to convert Markdown to Google Docs: HTTP 429</li><li>summary:Hacker News: Launch HN: Expanse (YC P26) – Unlock Wasted GPU Capacity: no useful page description</li><li>summary:Hacker News: Self-adapting and mutating LLM based viruses/worms: HTTP 429</li><li>summary:Hacker News: Show HN: Eatmydata.ai – Local-First Question-to-SQL-to-Dashboard AI: no useful page description</li><li>summary:Hacker News: Show HN: Spec27 – Spec-driven validation for AI agents: no useful page description</li><li>summary:Hacker News: Story of How Im Running an Unlimited $6/Month AI Provider on 4x RTX 30: HTTP 429</li><li>summary: fetched linked-page descriptions for 48 title-only/blank candidates</li><li>repeat-filter: suppressed 65 articles already printed in the last 21 days</li></ul>
+  </section>
+
+  <footer class="footer">
+    Generated locally by <code>~/.hermes/ai-radar/ai_radar_zine.py</code> from <code>sources.json</code>. Raw top items embedded below for future tooling.
+    <script type="application/json" id="radar-data">[{&quot;title&quot;: &quot;Show HN: Persona.js – a vanilla-JS agent UI library with native WebMCP (MIT)&quot;, &quot;url&quot;: &quot;https://www.persona-chat.dev/&quot;, &quot;source&quot;: &quot;Hacker News&quot;, &quot;kind&quot;: &quot;hn&quot;, &quot;published&quot;: &quot;2026-06-20T19:32:56+00:00&quot;, &quot;summary&quot;: &quot;Persona is an open-source, themeable AI chat widget you can add to any website in minutes. SSE streaming, agent loops, tool use, and style isolation: zero framework dependencies.&quot;, &quot;tags&quot;: [&quot;hn&quot;, &quot;Claude Code agent&quot;, &quot;deep-summary&quot;], &quot;score&quot;: 57.8, &quot;reasons&quot;: [&quot;agent&quot;, &quot;mcp&quot;, &quot;tool use&quot;, &quot;claude code&quot;], &quot;plain&quot;: &quot;A community-submitted project/thread. Plain version: Persona is an open-source, themeable AI chat widget you can add to any website in minutes.&quot;, &quot;why&quot;: &quot;MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.&quot;}, {&quot;title&quot;: &quot;Just made an app and MCP Server to convert Markdown to Google Docs&quot;, &quot;url&quot;: &quot;https://news.ycombinator.com/item?id=48601134&quot;, &quot;source&quot;: &quot;Hacker News&quot;, &quot;kind&quot;: &quot;hn&quot;, &quot;published&quot;: &quot;2026-06-19T17:50:10+00:00&quot;, &quot;summary&quot;: &quot;HN: 2 points, 1 comments. Query: Claude Code agent.&quot;, &quot;tags&quot;: [&quot;hn&quot;, &quot;Claude Code agent&quot;], &quot;score&quot;: 48.8, &quot;reasons&quot;: [&quot;agent&quot;, &quot;mcp&quot;, &quot;claude code&quot;], &quot;plain&quot;: &quot;A community-submitted project/thread. A title-first lead about: Just made an app and MCP Server to convert Markdown to Google Docs. Skim it only if that maps to current agent/tooling work. Treat it as an early smoke signal, not a verdict. HN: 2 points, 1 comments. Query: Claude Code agent.&quot;, &quot;why&quot;: &quot;MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.&quot;}, {&quot;title&quot;: &quot;Show HN: API Ingest – Agentic Search (Inter) API Docs&quot;, &quot;url&quot;: &quot;https://github.com/mohidbt/api-ingest&quot;, &quot;source&quot;: &quot;Hacker News&quot;, &quot;kind&quot;: &quot;hn&quot;, &quot;published&quot;: &quot;2026-04-22T14:00:25+00:00&quot;, &quot;summary&quot;: &quot;Handy MCP that converts API specs (OpenAPI YAML/JSON, RAML, WSDL, GraphQL, API Blueprint) into LLM-friendly markdown structures; focusing on token-efficiency and precision.&quot;, &quot;tags&quot;: [&quot;hn&quot;, &quot;LLM eval benchmark&quot;, &quot;deep-summary&quot;], &quot;score&quot;: 44.0, &quot;reasons&quot;: [&quot;agent&quot;, &quot;mcp&quot;, &quot;eval&quot;, &quot;benchmark&quot;], &quot;plain&quot;: &quot;A community-submitted project/thread. Plain version: Handy MCP that converts API specs (OpenAPI YAML/JSON, RAML, WSDL, GraphQL, API Blueprint) into LLM-friendly markdown structures; focusing on token-efficiency and precision.&quot;, &quot;why&quot;: &quot;MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.&quot;}, {&quot;title&quot;: &quot;Observation of electroweak production of pairs of Z bosons in proton-proton collisions at 13 TeV&quot;, &quot;url&quot;: &quot;https://arxiv.org/abs/2606.20558v1&quot;, &quot;source&quot;: &quot;arXiv&quot;, &quot;kind&quot;: &quot;paper&quot;, &quot;published&quot;: &quot;2026-06-18T17:59:33+00:00&quot;, &quot;summary&quot;: &quot;The first evidence of electroweak (EW) production of pairs of Z bosons in association with two jets (jj) in the final state ZZjj $\\to$ $\\ell\\ellνν$jj, where $\\ell$ = e, $μ$, is reported by the CMS experiment. The analysis is based on a data sample of proton-proton (pp) collisions at $\\sqrt{s}$ = 13 TeV, corresponding to an integrated luminosity of 138 fb$^{-1}$. Events are selected by requiring exactly two leptons o…&quot;, &quot;tags&quot;: [&quot;paper&quot;, &quot;large language model agents memory&quot;, &quot;hep-ex&quot;], &quot;score&quot;: 31.0, &quot;reasons&quot;: [&quot;agent&quot;, &quot;agents&quot;, &quot;memory&quot;], &quot;plain&quot;: &quot;A research paper. In human terms: The first evidence of electroweak (EW) production of pairs of Z bosons in association with two jets (jj) in the final state ZZjj $\\to$ $\\ell\\ellνν$jj, where $\\ell$ = e, $μ$, is reported by the CMS experiment.&quot;, &quot;why&quot;: &quot;This maps directly onto OAC: what agents remember, what they should forget, and how not to build a cursed context landfill.&quot;}, {&quot;title&quot;: &quot;Optimal Deterministic Multicalibration and Omniprediction&quot;, &quot;url&quot;: &quot;https://arxiv.org/abs/2606.20557v1&quot;, &quot;source&quot;: &quot;arXiv&quot;, &quot;kind&quot;: &quot;paper&quot;, &quot;published&quot;: &quot;2026-06-18T17:59:31+00:00&quot;, &quot;summary&quot;: &quot;A model is multicalibrated on a collection of group weights $G$ if it is calibrated -- i.e. unbiased even conditional on its prediction -- not just overall, but also after reweighting contexts by each $g \\in G$. It is a useful property for many downstream applications and is a basic desideratum of trustworthy machine learning. Before this work, all predictors known to attain the minimax-optimal $\\widetilde O(\\vareps…&quot;, &quot;tags&quot;: [&quot;paper&quot;, &quot;agentic AI tool use&quot;, &quot;cs.LG&quot;, &quot;math.ST&quot;, &quot;stat.ML&quot;], &quot;score&quot;: 24.0, &quot;reasons&quot;: [&quot;agent&quot;, &quot;tool use&quot;], &quot;plain&quot;: &quot;A research paper. In human terms: A model is multicalibrated on a collection of group weights $G$ if it is calibrated -- i.e.&quot;, &quot;why&quot;: &quot;Probably not bedtime reading, but papers can reveal new primitives before they become tools. Skim the abstract; deep-read only if it smells buildable.&quot;}, {&quot;title&quot;: &quot;Thinking in Boxes: 3D Editing in Real Images Made Easy&quot;, &quot;url&quot;: &quot;https://arxiv.org/abs/2606.20556v1&quot;, &quot;source&quot;: &quot;arXiv&quot;, &quot;kind&quot;: &quot;paper&quot;, &quot;published&quot;: &quot;2026-06-18T17:59:05+00:00&quot;, &quot;summary&quot;: &quot;Text and 2D-conditioning interfaces provide weak, ambiguous control over spatial transformations in image editing -- particularly under large object motions and camera changes. Prior work has used 3D primitives such as boxes, but only as loose conditioning signals indicating approximate object location rather than specifying the transformation. We instead use 3D boxes as structured specifications: the user provides…&quot;, &quot;tags&quot;: [&quot;paper&quot;, &quot;agentic AI tool use&quot;, &quot;cs.CV&quot;], &quot;score&quot;: 24.0, &quot;reasons&quot;: [&quot;agent&quot;, &quot;tool use&quot;], &quot;plain&quot;: &quot;A research paper. In human terms: Text and 2D-conditioning interfaces provide weak, ambiguous control over spatial transformations in image editing -- particularly under large object motions and camera changes.&quot;, &quot;why&quot;: &quot;Probably not bedtime reading, but papers can reveal new primitives before they become tools. Skim the abstract; deep-read only if it smells buildable.&quot;}, {&quot;title&quot;: &quot;Investing in multi-agent AI safety research&quot;, &quot;url&quot;: &quot;https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/&quot;, &quot;source&quot;: &quot;Google DeepMind Blog&quot;, &quot;kind&quot;: &quot;feed&quot;, &quot;published&quot;: &quot;2026-06-10T10:21:19+00:00&quot;, &quot;summary&quot;: &quot;Google DeepMind and partners announce a $10M funding call for multi-agent safety research.&quot;, &quot;tags&quot;: [&quot;research&quot;, &quot;models&quot;], &quot;score&quot;: 18.0, &quot;reasons&quot;: [&quot;feed&quot;], &quot;plain&quot;: &quot;A post from Google DeepMind Blog. Plain version: Google DeepMind and partners announce a $10M funding call for multi-agent safety research.&quot;, &quot;why&quot;: &quot;Kept because it matched the radar’s AI/agent/tooling filters. Skim title + source first; open only if it lines up with current Hermes/OAC work.&quot;}, {&quot;title&quot;: &quot;Fluid, natural voice translation with Gemini 3.5 Live Translate&quot;, &quot;url&quot;: &quot;https://deepmind.google/blog/fluid-natural-voice-translation-with-gemini-35-live-translate/&quot;, &quot;source&quot;: &quot;Google DeepMind Blog&quot;, &quot;kind&quot;: &quot;feed&quot;, &quot;published&quot;: &quot;2026-06-09T15:16:25+00:00&quot;, &quot;summary&quot;: &quot;Gemini 3.5 Live Translate brings near real-time, natural speech translation to Google AI Studio, Google Translate and Google Meet.&quot;, &quot;tags&quot;: [&quot;research&quot;, &quot;models&quot;], &quot;score&quot;: 18.0, &quot;reasons&quot;: [&quot;feed&quot;], &quot;plain&quot;: &quot;A post from Google DeepMind Blog. Plain version: Gemini 3.5 Live Translate brings near real-time, natural speech translation to Google AI Studio, Google Translate and Google Meet.&quot;, &quot;why&quot;: &quot;Kept because it matched the radar’s AI/agent/tooling filters. Skim title + source first; open only if it lines up with current Hermes/OAC work.&quot;}, {&quot;title&quot;: &quot;Introducing Gemma 4 12B: a unified, encoder-free multimodal model&quot;, &quot;url&quot;: &quot;https://deepmind.google/blog/introducing-gemma-4-12b-a-unified-encoder-free-multimodal-model/&quot;, &quot;source&quot;: &quot;Google DeepMind Blog&quot;, &quot;kind&quot;: &quot;feed&quot;, &quot;published&quot;: &quot;2026-06-09T14:10:19+00:00&quot;, &quot;summary&quot;: &quot;An overview of Gemma 4 12B, a model designed to bring high-performance multimodal intelligence directly to your laptop.&quot;, &quot;tags&quot;: [&quot;research&quot;, &quot;models&quot;, &quot;deep-summary&quot;], &quot;score&quot;: 18.0, &quot;reasons&quot;: [&quot;feed&quot;], &quot;plain&quot;: &quot;A post from Google DeepMind Blog. Plain version: An overview of Gemma 4 12B, a model designed to bring high-performance multimodal intelligence directly to your laptop.&quot;, &quot;why&quot;: &quot;Kept because it matched the radar’s AI/agent/tooling filters. Skim title + source first; open only if it lines up with current Hermes/OAC work.&quot;}, {&quot;title&quot;: &quot;Show HN: I built a middleware agent that turns PLC data into REST/gRPC APIs&quot;, &quot;url&quot;: &quot;https://limenedge.com/docs/getting-started&quot;, &quot;source&quot;: &quot;Hacker News&quot;, &quot;kind&quot;: &quot;hn&quot;, &quot;published&quot;: &quot;2026-06-20T18:39:59+00:00&quot;, &quot;summary&quot;: &quot;Limen Edge is a self-hosted edge agent that turns raw PLC data into clean REST and gRPC APIs. Modbus TCP, OPC UA, EtherNet/IP. No cloud required.&quot;, &quot;tags&quot;: [&quot;hn&quot;, &quot;MCP agent LLM&quot;, &quot;deep-summary&quot;], &quot;score&quot;: 43.7, &quot;reasons&quot;: [&quot;agent&quot;, &quot;mcp&quot;], &quot;plain&quot;: &quot;A community-submitted project/thread. Plain version: Limen Edge is a self-hosted edge agent that turns raw PLC data into clean REST and gRPC APIs.&quot;, &quot;why&quot;: &quot;MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.&quot;}, {&quot;title&quot;: &quot;Show HN: We post-trained a model that pen tests instead of refusing&quot;, &quot;url&quot;: &quot;https://www.argusred.com/cli&quot;, &quot;source&quot;: &quot;Hacker News&quot;, &quot;kind&quot;: &quot;hn&quot;, &quot;published&quot;: &quot;2026-06-20T13:49:03+00:00&quot;, &quot;summary&quot;: &quot;Audit your code with a read-only Security Scan, or run a gated Pen Test against systems you authorise. Same CLI, two modes. Free on repos you own; pen test by request.&quot;, &quot;tags&quot;: [&quot;hn&quot;, &quot;AI agents tool use&quot;, &quot;deep-summary&quot;], &quot;score&quot;: 43.3, &quot;reasons&quot;: [&quot;agent&quot;, &quot;agents&quot;, &quot;tool use&quot;], &quot;plain&quot;: &quot;A community-submitted project/thread. Plain version: Audit your code with a read-only Security Scan, or run a gated Pen Test against systems you authorise.&quot;, &quot;why&quot;: &quot;HN is noisy, but comments surface implementation pain fast. Good for spotting whether a shiny thing survives contact with engineers.&quot;}, {&quot;title&quot;: &quot;Show HN: Timestamp and provenance records for AI-assisted creative work&quot;, &quot;url&quot;: &quot;https://colossee.com&quot;, &quot;source&quot;: &quot;Hacker News&quot;, &quot;kind&quot;: &quot;hn&quot;, &quot;published&quot;: &quot;2026-06-19T22:29:57+00:00&quot;, &quot;summary&quot;: &quot;Create timestamped public proof for AI-assisted work before you publish, pitch, or deliver it.&quot;, &quot;tags&quot;: [&quot;hn&quot;, &quot;AI agents tool use&quot;, &quot;deep-summary&quot;], &quot;score&quot;: 42.2, &quot;reasons&quot;: [&quot;agent&quot;, &quot;agents&quot;, &quot;tool use&quot;], &quot;plain&quot;: &quot;A community-submitted project/thread. Plain version: Create timestamped public proof for AI-assisted work before you publish, pitch, or deliver it.&quot;, &quot;why&quot;: &quot;HN is noisy, but comments surface implementation pain fast. Good for spotting whether a shiny thing survives contact with engineers.&quot;}, {&quot;title&quot;: &quot;Show HN: Coding Tools MCP – Give any LLM agent the ability to code&quot;, &quot;url&quot;: &quot;https://github.com/xyTom/coding-tools-mcp&quot;, &quot;source&quot;: &quot;Hacker News&quot;, &quot;kind&quot;: &quot;hn&quot;, &quot;published&quot;: &quot;2026-06-19T03:50:38+00:00&quot;, &quot;summary&quot;: &quot;Coding Tools MCP is a model-neutral coding-agent runtime MCP server. It exposes local coding primitives to any MCP client:&quot;, &quot;tags&quot;: [&quot;hn&quot;, &quot;MCP agent LLM&quot;, &quot;deep-summary&quot;], &quot;score&quot;: 40.8, &quot;reasons&quot;: [&quot;agent&quot;, &quot;mcp&quot;], &quot;plain&quot;: &quot;A community-submitted project/thread. Plain version: Coding Tools MCP is a model-neutral coding-agent runtime MCP server.&quot;, &quot;why&quot;: &quot;MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.&quot;}, {&quot;title&quot;: &quot;Show HN: Forge – Guardrails take an 8B model from 53% to 99% on agentic tasks&quot;, &quot;url&quot;: &quot;https://github.com/antoinezambelli/forge&quot;, &quot;source&quot;: &quot;Hacker News&quot;, &quot;kind&quot;: &quot;hn&quot;, &quot;published&quot;: &quot;2026-05-19T12:23:07+00:00&quot;, &quot;summary&quot;: &quot;A Python framework for self-hosted LLM tool-calling and multi-step agentic workflows - antoinezambelli/forge&quot;, &quot;tags&quot;: [&quot;hn&quot;, &quot;LLM eval benchmark&quot;, &quot;deep-summary&quot;], &quot;score&quot;: 37.0, &quot;reasons&quot;: [&quot;agent&quot;, &quot;eval&quot;, &quot;benchmark&quot;, &quot;workflow&quot;], &quot;plain&quot;: &quot;A community-submitted project/thread. Plain version: A Python framework for self-hosted LLM tool-calling and multi-step agentic workflows - antoinezambelli/forge&quot;, &quot;why&quot;: &quot;Evals are how we avoid vibes-only agent work. Useful if it suggests tests we can adapt for Hermes/OAC reliability.&quot;}, {&quot;title&quot;: &quot;Hermes Agent: Hermes Agent v0.17.0 (v2026.6.19)&quot;, &quot;url&quot;: &quot;https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.19&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-06-19T19:39:06+00:00&quot;, &quot;summary&quot;: &quot;# Hermes Agent v0.17.0 (v2026.6.19) **Release Date:** June 19, 2026 **Since v0.16.0:** ~1,475 commits · ~800 merged PRs · 1,693 files changed · 235,390 insertions · 50,730 deletions · 300+ issues closed · 245 community contributors &gt; **The Reach Release.** v0.16.0 put Hermes on your desktop. v0.17.0 is about how far that reach extends — across new places to…&quot;, &quot;tags&quot;: [&quot;hermes&quot;, &quot;agent-ops&quot;, &quot;NousResearch/hermes-agent&quot;], &quot;score&quot;: 57.0, &quot;reasons&quot;: [&quot;hermes&quot;, &quot;hermes&quot;], &quot;plain&quot;: &quot;A new release/update from Hermes Agent. Plain version: The Reach Release. v0.16.0 put Hermes on your desktop. v0.17.0 is about how far that reach extends — across new places to…&quot;, &quot;why&quot;: &quot;Directly relevant to your agent stack. This can affect Hermes behavior, upgrade timing, plugins, gateway surfaces, or ideas worth stealing for OAC/DestructoR666.&quot;}, {&quot;title&quot;: &quot;OpenAI Agents Python: v0.17.4&quot;, &quot;url&quot;: &quot;https://github.com/openai/openai-agents-python/releases/tag/v0.17.4&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-05-26T08:54:24+00:00&quot;, &quot;summary&quot;: &quot;## What&#x27;s Changed * feat: support Realtime custom voice objects by @lionel-oai in https://github.com/openai/openai-agents-python/pull/3473 * fix: #3459 add opt-in recovery for missing function tools by @seratch in https://github.com/openai/openai-agents-python/pull/3461 * fix: apply hardened http client default to MCP SSE transport by @ioleksiuk in https://…&quot;, &quot;tags&quot;: [&quot;agents&quot;, &quot;sdk&quot;, &quot;openai/openai-agents-python&quot;], &quot;score&quot;: 51.0, &quot;reasons&quot;: [&quot;agent&quot;, &quot;agents&quot;, &quot;mcp&quot;, &quot;openai agents&quot;], &quot;plain&quot;: &quot;A new release/update from OpenAI Agents Python. Plain version: feat: support Realtime custom voice objects by @lionel-oai in * fix: #3459 add opt-in recovery for missing function tools by @seratch in * fix: apply hardened http client default to MCP SSE transport by @ioleksiuk in&quot;, &quot;why&quot;: &quot;Competitive intel: how OpenAI thinks agent SDKs should work, where Hermes is ahead/behind, and patterns we might borrow without joining the mothership.&quot;}, {&quot;title&quot;: &quot;Hermes Agent: Hermes Agent v0.16.0 (2026.6.5) — The Surface Release&quot;, &quot;url&quot;: &quot;https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.5&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-06-06T00:55:58+00:00&quot;, &quot;summary&quot;: &quot;# Hermes Agent v0.16.0 (v2026.6.5) **Release Date:** June 5, 2026 **Since v0.15.2:** 874 commits · 542 merged PRs · 1,962 files changed · 205,216 insertions · 46,217 deletions · 399 issues closed (2 P0, 62 P1, 16 security-tagged) · 170 community contributors (including co-authors) &gt; **The Surface Release.** Hermes meets you wherever you work. A brand-new na…&quot;, &quot;tags&quot;: [&quot;hermes&quot;, &quot;agent-ops&quot;, &quot;NousResearch/hermes-agent&quot;], &quot;score&quot;: 48.0, &quot;reasons&quot;: [&quot;hermes&quot;, &quot;hermes&quot;], &quot;plain&quot;: &quot;A new release/update from Hermes Agent. Plain version: The Surface Release. Hermes meets you wherever you work. A brand-new na…&quot;, &quot;why&quot;: &quot;Directly relevant to your agent stack. This can affect Hermes behavior, upgrade timing, plugins, gateway surfaces, or ideas worth stealing for OAC/DestructoR666.&quot;}, {&quot;title&quot;: &quot;OpenAI Agents Python: v0.17.6&quot;, &quot;url&quot;: &quot;https://github.com/openai/openai-agents-python/releases/tag/v0.17.6&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-06-19T06:03:31+00:00&quot;, &quot;summary&quot;: &quot;## What&#x27;s Changed * feat: add pre-approval tool input guardrails by @seratch in https://github.com/openai/openai-agents-python/pull/3487 * feat: add SDK-only custom data for tool outputs by @seratch in https://github.com/openai/openai-agents-python/pull/3486 * fix: enforce the documented strict JSON-compatible contract for #3486 by @siddiksawani in https://…&quot;, &quot;tags&quot;: [&quot;agents&quot;, &quot;sdk&quot;, &quot;openai/openai-agents-python&quot;], &quot;score&quot;: 38.0, &quot;reasons&quot;: [&quot;agents&quot;, &quot;openai agents&quot;], &quot;plain&quot;: &quot;A new release/update from OpenAI Agents Python. Plain version: feat: add pre-approval tool input guardrails by @seratch in * feat: add SDK-only custom data for tool outputs by @seratch in * fix: enforce the documented strict JSON-compatible contract for #3486 by @siddiksawani in&quot;, &quot;why&quot;: &quot;Competitive intel: how OpenAI thinks agent SDKs should work, where Hermes is ahead/behind, and patterns we might borrow without joining the mothership.&quot;}, {&quot;title&quot;: &quot;LangGraph: langgraph==1.2.6&quot;, &quot;url&quot;: &quot;https://github.com/langchain-ai/langgraph/releases/tag/1.2.6&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-06-18T20:58:32+00:00&quot;, &quot;summary&quot;: &quot;Changes since 1.2.5 * release(langgraph): 1.2.6 (#8139) * fix: nested subgraph inherits parent checkpoint_ns (regression in 1.2.3) (#8053) * fix: cancel running subgraphs on v3 stream abort [closes #8029] (#8057) * release(cli): 0.4.30 (#8101) * docs: standardize package `README.md` structure (#8064) * chore(deps): bump tornado from 6.5.5 to 6.5.6 in /libs/…&quot;, &quot;tags&quot;: [&quot;agents&quot;, &quot;workflow&quot;, &quot;langchain-ai/langgraph&quot;], &quot;score&quot;: 37.3, &quot;reasons&quot;: [&quot;agents&quot;, &quot;workflow&quot;], &quot;plain&quot;: &quot;A new release/update from LangGraph. Plain version: 1.2.5 * release(langgraph): 1.2.6 (#8139) * fix: nested subgraph inherits parent checkpoint_ns (regression in 1.2.3) (#8053) * fix: cancel running subgraphs on v3 stream abort [closes #8029] (#8057) * release(cli): 0.4.30 (#8101)…&quot;, &quot;why&quot;: &quot;Useful as a contrast model for workflow/stateful agents. Even if we do not adopt it, it exposes design patterns and footguns for OAC-style continuity.&quot;}, {&quot;title&quot;: &quot;MCP TypeScript SDK: @modelcontextprotocol/node@2.0.0-alpha.1&quot;, &quot;url&quot;: &quot;https://github.com/modelcontextprotocol/typescript-sdk/releases/tag/%40modelcontextprotocol/node%402.0.0-alpha.1&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-04-01T14:46:32+00:00&quot;, &quot;summary&quot;: &quot;### Patch Changes - [#1504](https://github.com/modelcontextprotocol/typescript-sdk/pull/1504) [`327243c`](https://github.com/modelcontextprotocol/typescript-sdk/commit/327243cebd96e07686c88f7fa9ca22a5a7a7993d) Thanks [@corvid-agent](https://github.com/corvid-agent)! - Add missing `hono` peer dependency to `@modelcontextprotocol/node`. The package already de…&quot;, &quot;tags&quot;: [&quot;mcp&quot;, &quot;tools&quot;, &quot;modelcontextprotocol/typescript-sdk&quot;], &quot;score&quot;: 37.0, &quot;reasons&quot;: [&quot;agent&quot;, &quot;mcp&quot;], &quot;plain&quot;: &quot;A new release/update from MCP TypeScript SDK. Plain version: Patch Changes - #1504 327243c Thanks @corvid-agent!&quot;, &quot;why&quot;: &quot;MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.&quot;}, {&quot;title&quot;: &quot;MCP Python SDK: v2.0.0a2&quot;, &quot;url&quot;: &quot;https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.0.0a2&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-06-16T21:55:31+00:00&quot;, &quot;summary&quot;: &quot;Second v2 alpha. Pre-releases are opt-in only; `pip install mcp` still resolves to the stable 1.x line. ```bash pip install mcp==2.0.0a2 # or uv add \&quot;mcp==2.0.0a2\&quot; ``` See the [migration guide](https://github.com/modelcontextprotocol/python-sdk/blob/main/docs/migration.md) for the full list of breaking changes. ## Highlights ### Full 2026-07-28 types added…&quot;, &quot;tags&quot;: [&quot;mcp&quot;, &quot;tools&quot;, &quot;modelcontextprotocol/python-sdk&quot;], &quot;score&quot;: 33.7, &quot;reasons&quot;: [&quot;mcp&quot;], &quot;plain&quot;: &quot;A new release/update from MCP Python SDK. Plain version: Full 2026-07-28 types added…&quot;, &quot;why&quot;: &quot;MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.&quot;}, {&quot;title&quot;: &quot;MCP Python SDK: v1.28.0&quot;, &quot;url&quot;: &quot;https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.28.0&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-06-16T21:30:35+00:00&quot;, &quot;summary&quot;: &quot;## Deprecations Two API surfaces now emit `DeprecationWarning` ahead of their removal in v2. Nothing is removed in 1.x, and the warnings fire only when the deprecated API is *called* - importing the modules stays silent. - **WebSocket transport** - `mcp.client.websocket.websocket_client` and `mcp.server.websocket.websocket_server`. WebSocket was never part…&quot;, &quot;tags&quot;: [&quot;mcp&quot;, &quot;tools&quot;, &quot;modelcontextprotocol/python-sdk&quot;], &quot;score&quot;: 33.7, &quot;reasons&quot;: [&quot;mcp&quot;], &quot;plain&quot;: &quot;A new release/update from MCP Python SDK. Plain version: Deprecations Two API surfaces now emit DeprecationWarning ahead of their removal in v2.&quot;, &quot;why&quot;: &quot;MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.&quot;}, {&quot;title&quot;: &quot;LangGraph: langgraph-cli==0.4.30&quot;, &quot;url&quot;: &quot;https://github.com/langchain-ai/langgraph/releases/tag/cli%3D%3D0.4.30&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-06-16T19:46:45+00:00&quot;, &quot;summary&quot;: &quot;Changes since cli==0.4.29 * release(cli): 0.4.30 (#8101) * feat(cli): support compatible api version ranges (#8023) * docs: standardize package `README.md` structure (#8064)&quot;, &quot;tags&quot;: [&quot;agents&quot;, &quot;workflow&quot;, &quot;langchain-ai/langgraph&quot;], &quot;score&quot;: 33.6, &quot;reasons&quot;: [&quot;agents&quot;, &quot;workflow&quot;], &quot;plain&quot;: &quot;A new release/update from LangGraph. Plain version: cli==0.4.29 * release(cli): 0.4.30 (#8101) * feat(cli): support compatible api version ranges (#8023) * docs: standardize package README.md structure (#8064)&quot;, &quot;why&quot;: &quot;Useful as a contrast model for workflow/stateful agents. Even if we do not adopt it, it exposes design patterns and footguns for OAC-style continuity.&quot;}, {&quot;title&quot;: &quot;MCP TypeScript SDK: @modelcontextprotocol/server@2.0.0-alpha.2&quot;, &quot;url&quot;: &quot;https://github.com/modelcontextprotocol/typescript-sdk/releases/tag/%40modelcontextprotocol/server%402.0.0-alpha.2&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-04-01T16:44:31+00:00&quot;, &quot;summary&quot;: &quot;### Patch Changes - [#1840](https://github.com/modelcontextprotocol/typescript-sdk/pull/1840) [`424cbae`](https://github.com/modelcontextprotocol/typescript-sdk/commit/424cbaeee13b7fe18d38048295135395b9ad81bb) Thanks [@KKonstantinov](https://github.com/KKonstantinov)! - tsdown exports resolution fix&quot;, &quot;tags&quot;: [&quot;mcp&quot;, &quot;tools&quot;, &quot;modelcontextprotocol/typescript-sdk&quot;], &quot;score&quot;: 30.0, &quot;reasons&quot;: [&quot;mcp&quot;], &quot;plain&quot;: &quot;A new release/update from MCP TypeScript SDK. Plain version: Patch Changes - #1840 424cbae Thanks @KKonstantinov!&quot;, &quot;why&quot;: &quot;MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.&quot;}]</script>
+  </footer>
+</main>
+</body>
+</html>
