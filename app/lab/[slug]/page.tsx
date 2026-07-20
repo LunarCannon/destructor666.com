@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getLabNote, labNotes } from "@/content/lab";
+import { GuardedMemoryMap } from "../GuardedMemoryMap";
 
 export function generateStaticParams() {
   return labNotes.map((note) => ({ slug: note.slug }));
@@ -43,6 +44,7 @@ export default async function LabNotePage({ params }: { params: Promise<{ slug: 
           <p className="lede">{note.dek}</p>
           <p className="meta">Published {note.date}</p>
         </article>
+        {note.visual === "guarded-memory" ? <GuardedMemoryMap /> : null}
         {note.sections.map((section) => (
           <section className="issue-section prose-section" key={section.heading}>
             <p className="kicker">{section.heading}</p>
