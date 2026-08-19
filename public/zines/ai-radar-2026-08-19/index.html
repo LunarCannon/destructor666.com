@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DestructoR666 AI Digest · 2026-08-19</title>
+<link rel="canonical" href="https://destructor666.com/zines/ai-radar-2026-08-19/">
+<style>
+:root {
+  --bg: #050506;
+  --bg-2: #0b0609;
+  --surface: #111015;
+  --surface-2: #19151f;
+  --paper: #fbf1d7;
+  --paper-2: #fff8e8;
+  --ink: #17130f;
+  --body: #2b241d;
+  --muted: #776b5b;
+  --site-ink: #f6f0df;
+  --site-muted: #a79c93;
+  --line: rgba(23,19,15,.22);
+  --dark-line: rgba(246,240,223,.16);
+  --acid: #d8ff3e;
+  --cyan: #37f7ff;
+  --hot: #ff204e;
+  --amber: #ff8a1c;
+  --green: #47d16c;
+  --shadow: 8px 8px 0 rgba(255,32,78,.82), 12px 12px 0 rgba(55,247,255,.45);
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--site-ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 14% 4%, rgba(255,32,78,.24), transparent 30rem),
+    radial-gradient(circle at 86% 0%, rgba(55,247,255,.18), transparent 28rem),
+    radial-gradient(circle at 54% 55%, rgba(216,255,62,.07), transparent 31rem),
+    linear-gradient(180deg, #050506 0%, #0d070b 48%, #050506 100%);
+  min-height: 100vh;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .28;
+  background:
+    repeating-linear-gradient(180deg, rgba(255,255,255,.09) 0 1px, transparent 1px 5px),
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: auto, 46px 46px, 46px 46px;
+  mix-blend-mode: overlay;
+  mask-image: radial-gradient(circle at 50% 22%, black, transparent 80%);
+  z-index: 20;
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .09;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  mix-blend-mode: screen;
+  z-index: 21;
+}
+a { color: inherit; }
+a:hover { color: var(--hot); }
+.zine { max-width: 1040px; margin: 0 auto; padding: 18px 14px 72px; position: relative; z-index: 1; }
+.cover {
+  min-height: min(86svh, 780px);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  border: 1px solid rgba(255,32,78,.44);
+  box-shadow: 0 24px 110px rgba(0,0,0,.46), inset 0 1px 0 rgba(255,255,255,.08);
+  background:
+    linear-gradient(90deg, rgba(55,247,255,.07) 1px, transparent 1px),
+    linear-gradient(rgba(216,255,62,.045) 1px, transparent 1px),
+    radial-gradient(circle at 16% 12%, rgba(255,32,78,.22), transparent 21rem),
+    radial-gradient(circle at 92% 8%, rgba(55,247,255,.14), transparent 20rem),
+    linear-gradient(140deg, rgba(25,21,31,.98), rgba(5,5,6,.92));
+  background-size: 28px 28px, 28px 28px, auto, auto, auto;
+  padding: clamp(20px, 4vw, 46px);
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, 94% 0, 100% 7%, 100% 100%, 6% 100%, 0 93%);
+}
+.cover::before {
+  content: "D666 // SIGNAL RAG";
+  position: absolute;
+  right: clamp(12px, 3vw, 36px);
+  top: clamp(12px, 3vw, 30px);
+  color: rgba(216,255,62,.36);
+  font: 900 11px/1 var(--mono);
+  letter-spacing: .22em;
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+}
+.cover::after {
+  content: "";
+  position: absolute;
+  width: min(44vw, 420px);
+  height: min(44vw, 420px);
+  right: -120px;
+  bottom: -140px;
+  border: 1px solid rgba(55,247,255,.32);
+  border-radius: 999px;
+  box-shadow: 0 0 0 18px rgba(255,32,78,.08), 0 0 80px rgba(55,247,255,.18);
+}
+.kicker { font: 900 12px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--acid); text-shadow: 0 0 22px rgba(216,255,62,.28); }
+h1 {
+  font-size: clamp(62px, 15vw, 146px);
+  line-height: .78;
+  letter-spacing: -.085em;
+  margin: .24em 0 .18em;
+  max-width: 7ch;
+  text-transform: uppercase;
+  color: var(--site-ink);
+  text-shadow: 3px 0 var(--hot), -3px 0 var(--cyan), 0 0 28px rgba(255,32,78,.22);
+}
+.issue { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font: 800 13px/1.2 var(--mono); color: var(--site-ink); }
+.issue span { border: 1px solid var(--dark-line); padding: 9px 11px; background: rgba(246,240,223,.07); backdrop-filter: blur(10px); }
+.issue span:nth-child(2) { border-color: rgba(55,247,255,.42); color: var(--cyan); }
+.issue span:nth-child(3) { border-color: rgba(255,32,78,.42); color: #ff8ca2; }
+.thesis {
+  max-width: 42rem;
+  font-size: clamp(21px, 4.6vw, 40px);
+  line-height: .98;
+  letter-spacing: -.04em;
+  font-weight: 900;
+  text-wrap: balance;
+  align-self: end;
+  color: var(--site-ink);
+}
+.thesis em { color: var(--acid); font-style: normal; }
+.nav {
+  position: sticky; top: 0; z-index: 5; margin: 18px -14px 0; padding: 10px 14px;
+  display: flex; gap: 8px; overflow-x: auto;
+  background: rgba(5,5,6,.82); backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,32,78,.28);
+  box-shadow: 0 12px 40px rgba(0,0,0,.28);
+}
+.nav a { white-space: nowrap; text-decoration: none; border: 1px solid rgba(246,240,223,.18); padding: 10px 12px; background: rgba(246,240,223,.06); color: var(--site-ink); font: 900 12px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; min-height: 44px; display: inline-flex; align-items: center; }
+.nav a:hover { border-color: rgba(216,255,62,.55); color: var(--acid); }
+section { padding: 42px 0 0; }
+.section-title { display:flex; align-items:end; justify-content:space-between; gap: 18px; border-bottom: 1px solid rgba(216,255,62,.32); margin-bottom: 18px; padding-bottom: 12px; }
+h2 { font-size: clamp(34px, 8vw, 68px); line-height:.9; letter-spacing:-.06em; margin:0; text-transform: uppercase; color: var(--site-ink); text-wrap: balance; }
+.note { color: var(--site-muted); max-width: 34rem; font-size: 14px; }
+.stats { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+.stat { border: 1px solid rgba(55,247,255,.28); background: linear-gradient(180deg, rgba(246,240,223,.09), rgba(246,240,223,.035)); padding: 16px; box-shadow: inset 0 1px 0 rgba(255,255,255,.08); color: var(--site-ink); }
+.stat b { display:block; font: 950 34px/1 var(--mono); color: var(--acid); }
+.stat small { text-transform: uppercase; letter-spacing: .09em; font-weight: 900; color: var(--site-muted); }
+.counts { display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
+.counts span { border: 1px solid rgba(246,240,223,.16); background: rgba(246,240,223,.06); color: var(--site-muted); padding: 7px 9px; font-size: 12px; }
+.counts b { margin-right:5px; color: var(--site-ink); }
+.grid { display:grid; grid-template-columns: 1fr; gap: 16px; }
+.card {
+  display:grid; grid-template-columns: 58px 1fr; gap: 14px;
+  border: 1px solid rgba(23,19,15,.28);
+  background:
+    linear-gradient(90deg, rgba(255,32,78,.045), transparent 32%),
+    var(--paper);
+  color: var(--ink);
+  box-shadow: 7px 7px 0 rgba(0,0,0,.78);
+  padding: 14px;
+  position: relative;
+}
+.card::before { content:""; position:absolute; inset:0; pointer-events:none; border-top: 3px solid rgba(255,32,78,.68); opacity:.78; }
+.card:nth-child(even) { background: linear-gradient(90deg, rgba(55,247,255,.055), transparent 32%), var(--paper-2); }
+.card.updates { background: #efe4c8; box-shadow: 4px 4px 0 rgba(0,0,0,.68); opacity: .94; }
+.card.updates::before { border-top-color: rgba(119,107,91,.55); }
+.card.updates .rank { background: #3a3129; color: #fff1d8; }
+.card.updates h3 { font-size: clamp(18px, 4vw, 24px); }
+.updates-grid { opacity: .96; }
+.rank { font: 950 17px/1 var(--mono); color: #070406; background: var(--hot); display:grid; place-items:center; min-height: 58px; box-shadow: 3px 3px 0 var(--ink); }
+.meta { color: var(--muted); font: 850 11px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+h3 { margin: 6px 0 8px; font-size: clamp(20px, 4.6vw, 29px); line-height: 1; letter-spacing: -.04em; text-wrap: balance; color: var(--ink); }
+h3 a { text-decoration-thickness: 2px; text-underline-offset: 3px; }
+p { font-size: 15.5px; line-height: 1.46; margin: 0; color: var(--body); }
+.take { margin-top: 10px; padding: 10px 11px; border: 1px solid var(--line); background: rgba(255,248,232,.72); }
+.take b { display: inline-block; font: 950 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: #b10f31; margin-bottom: 6px; }
+.take.why { background: rgba(255,255,255,.72); border-style: dashed; }
+.take.why b { color: #075e66; }
+.raw { margin-top: 9px; color: var(--muted); font-size: 13px; }
+.raw summary { min-height: 36px; cursor: pointer; font: 850 12px/36px var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+.raw p { color: var(--muted); font-size: 13px; border-left: 3px solid rgba(255,32,78,.22); padding-left: 9px; }
+.tags { display:flex; flex-wrap:wrap; gap:6px; margin: 12px 0; }
+.tags span { font: 750 11px/1 var(--mono); border: 1px solid var(--line); border-radius: 999px; padding: 5px 8px; background: rgba(255,255,255,.62); }
+.score { display:grid; grid-template-columns: 1fr auto; gap: 4px 10px; align-items:center; border-top: 1px dashed var(--line); padding-top: 8px; }
+.score span { font-weight: 950; color: #0b7a41; text-transform: uppercase; font-size: 12px; letter-spacing: .05em; }
+.score b { font: 950 22px/1 var(--mono); color: #b10f31; }
+.score small { grid-column: 1 / -1; color: var(--muted); font-size: 11px; }
+.manifesto { border: 1px solid rgba(255,32,78,.38); background: linear-gradient(140deg, rgba(255,32,78,.14), transparent 28%), linear-gradient(180deg, rgba(25,21,31,.96), rgba(5,5,6,.92)); color: var(--site-ink); padding: 20px; box-shadow: 0 20px 90px rgba(0,0,0,.34); }
+.manifesto h2 { color: var(--site-ink); }
+.manifesto p, .manifesto li { color: var(--site-ink); }
+.manifesto ul { padding-left: 1.1rem; }
+.errors { font: 12px/1.5 var(--mono); color: var(--site-muted); }
+.footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid rgba(246,240,223,.16); color: var(--site-muted); font-size: 12px; }
+.actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+button { min-height:44px; border:1px solid rgba(246,240,223,.18); background: var(--acid); color:#100307; box-shadow:4px 4px 0 rgba(255,32,78,.78); font-weight:950; padding: 10px 12px; font-family: var(--mono); text-transform: uppercase; letter-spacing:.06em; }
+button:nth-child(2) { background: rgba(246,240,223,.08); color: var(--site-ink); box-shadow: 4px 4px 0 rgba(55,247,255,.38); }
+button:active { transform: translate(2px,2px); box-shadow:1px 1px 0 rgba(255,32,78,.78); }
+@media (min-width: 760px) {
+  .grid.two { grid-template-columns: 1fr 1fr; }
+  .stats { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 620px) {
+  .zine { padding-left: 10px; padding-right: 10px; }
+  .cover { min-height: 72svh; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  .cover::before { display:none; }
+  .card { grid-template-columns: 1fr; box-shadow: 4px 4px 0 rgba(0,0,0,.78); }
+  .rank { width:58px; min-height:40px; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .section-title { display:block; }
+  .note { margin-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+@media print {
+  .nav, .actions { display:none; }
+  body { background:white; color:#111; }
+  body::before, body::after { display:none; }
+  .cover, .manifesto { background:white; color:#111; border-color:#111; clip-path:none; box-shadow:none; }
+  .cover h1, h2, .thesis, .manifesto h2, .manifesto p, .manifesto li { color:#111; text-shadow:none; }
+  .card, .stat { box-shadow:none; break-inside: avoid; }
+  .footer { color:#444; border-top-color:#111; }
+}
+</style>
+</head>
+<body>
+<main class="zine">
+  <header class="cover">
+    <div>
+      <div class="kicker">DestructoR666 AI Digest · Free-source v0.3 no-repeat edit</div>
+      <h1>Signal<br>Rag</h1>
+      <div class="issue">
+        <span>Aug 19, 2026</span>
+        <span>80 leads scanned</span>
+        <span>8 sources</span>
+      </div>
+    </div>
+    <div class="thesis">A tiny anti-slop zine for <em>agents, tools, model ops, and actually useful AI weirdness</em>. No X API toll paid.</div>
+    <div class="actions">
+      <button onclick="window.print()">Print / Save PDF</button>
+      <button onclick="navigator.share ? navigator.share({title:document.title,url:location.href}) : alert('Share from your browser menu')">Share</button>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Sections">
+    <a href="#front">Editor picks</a><a href="#articles">Articles / research</a><a href="#updates">Releases</a><a href="#radar">Stats</a><a href="#method">Method</a><a href="#logs">Logs</a>
+  </nav>
+
+  <section id="front">
+    <div class="section-title"><h2>Editor picks</h2><div class="note">Thinking, experiments, papers, and opinionated field notes first. Releases are useful, but they live downstairs now.</div></div>
+    <div class="grid">
+        <article class="card articles" data-kind="reddit" data-score="67.9">
+          <div class="rank">#01</div>
+          <div class="card-main">
+            <div class="meta"><b>r/hermesagent</b> · reddit · Aug 19</div>
+            <h3><a href="https://www.reddit.com/r/hermesagent/comments/1vsiamp/one_year_ago_i_was_a_factory_mechanic_today_i_run/">One year ago I was a factory mechanic. Today I run a business around my AI agent. all possible because of Hermes</a></h3>
+            <div class="take"><b>Editor's read</b><p>A Reddit field report/discussion from r/hermesagent. Plain version: his post is basically a love letter to the Nous team, Peter Steinberg who got me into AI agents, AI in general, and of course you (my dear readers).</p></div>
+            <div class="take why"><b>Why you might care</b><p>Directly relevant to your agent stack. This can affect Hermes behavior, upgrade timing, plugins, gateway surfaces, or ideas worth stealing for OAC/DestructoR666.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>his post is basically a love letter to the Nous team, Peter Steinberg who got me into AI agents, AI in general, and of course you (my dear readers). I have never talked about my past as openly as I am talking about it today. Only one year back I still worked full-time as an industrial mechanic in a factory. But let&#x27;s start from the beginning. I was really b…</p></details>
+            <div class="tags"><span>reddit</span><span>hermes</span><span>agents</span><span>hermesagent</span></div>
+            <div class="score"><span>read</span><b>67.9</b><small>hermes, hermes, agents, ai agent</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="reddit" data-score="67.7">
+          <div class="rank">#02</div>
+          <div class="card-main">
+            <div class="meta"><b>r/hermesagent</b> · reddit · Aug 19</div>
+            <h3><a href="https://www.reddit.com/r/hermesagent/comments/1vsex8l/anyone_know_of_a_great_uncensored_llm_to_host/">anyone know of a great uncensored llm to host even locally?</a></h3>
+            <div class="take"><b>Editor's read</b><p>A Reddit field report/discussion from r/hermesagent. Plain version: not for anything crazy but these stupid commercial llms cant even work on security for one of my sites im building- its so annoying bro submitted by /u/RosalbaaaaAAbbey [link] [comments]</p></div>
+            <div class="take why"><b>Why you might care</b><p>Directly relevant to your agent stack. This can affect Hermes behavior, upgrade timing, plugins, gateway surfaces, or ideas worth stealing for OAC/DestructoR666.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>not for anything crazy but these stupid commercial llms cant even work on security for one of my sites im building- its so annoying bro submitted by /u/RosalbaaaaAAbbey [link] [comments]</p></details>
+            <div class="tags"><span>reddit</span><span>hermes</span><span>agents</span><span>hermesagent</span></div>
+            <div class="score"><span>read</span><b>67.7</b><small>hermes, hermes, agent, agents</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="reddit" data-score="61.0">
+          <div class="rank">#03</div>
+          <div class="card-main">
+            <div class="meta"><b>r/hermesagent</b> · reddit · Aug 19</div>
+            <h3><a href="https://www.reddit.com/r/hermesagent/comments/1vsikia/im_using_muse_spark_12_contrib_right_now_mark_can/">I&#x27;m using Muse Spark 1.2 Contrib right now. Mark can have my data!</a></h3>
+            <div class="take"><b>Editor's read</b><p>A Reddit field report/discussion from r/hermesagent. Plain version: I was miserable the moment Deepseek bump up the price.</p></div>
+            <div class="take why"><b>Why you might care</b><p>Directly relevant to your agent stack. This can affect Hermes behavior, upgrade timing, plugins, gateway surfaces, or ideas worth stealing for OAC/DestructoR666.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>https://preview.redd.it/hg9oohuk6bkh1.png?width=827&amp;format=png&amp;auto=webp&amp;s=847f9751756419e661bd92fdb79f7faed6def57e I was miserable the moment Deepseek bump up the price. It seems I have a Muse Spark 1.2 contrib to the rescue for now. Let&#x27;s see what change in another 2 weeks. This age is crazy man. submitted by /u/GTHell [link] [comments]</p></details>
+            <div class="tags"><span>reddit</span><span>hermes</span><span>agents</span><span>hermesagent</span></div>
+            <div class="score"><span>read</span><b>61.0</b><small>hermes, hermes, agents</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="feed" data-score="52.8">
+          <div class="rank">#04</div>
+          <div class="card-main">
+            <div class="meta"><b>Latent Space</b> · feed · Aug 19</div>
+            <h3><a href="https://www.latent.space/p/ainews-memory-prices-up-500-in-12">[AINews] Memory prices up 500% in 12 months</a></h3>
+            <div class="take"><b>Editor's read</b><p>A post from Latent Space. Plain version: the Memory crunch continues - Moore’s Law reversed to 2007 levels</p></div>
+            <div class="take why"><b>Why you might care</b><p>This maps directly onto OAC: what agents remember, what they should forget, and how not to build a cursed context landfill.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>the Memory crunch continues - Moore’s Law reversed to 2007 levels</p></details>
+            <div class="tags"><span>ai</span><span>industry</span><span>agents</span></div>
+            <div class="score"><span>read</span><b>52.8</b><small>agents, memory</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="feed" data-score="51.7">
+          <div class="rank">#05</div>
+          <div class="card-main">
+            <div class="meta"><b>Hugging Face Blog</b> · feed · Aug 18</div>
+            <h3><a href="https://huggingface.co/blog/ibm-research/altk-evolve-hmm">How Much Memory Does Your Agent Actually Need?</a></h3>
+            <div class="take"><b>Editor's read</b><p>A post from Hugging Face Blog. Plain version: A title-first lead about: How Much Memory Does Your Agent Actually Need?. Skim it only if that maps to current agent/tooling work.</p></div>
+            <div class="take why"><b>Why you might care</b><p>This maps directly onto OAC: what agents remember, what they should forget, and how not to build a cursed context landfill.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>No summary from source. Open the link if this smells interesting.</p></details>
+            <div class="tags"><span>models</span><span>open-source</span><span>inference</span></div>
+            <div class="score"><span>read</span><b>51.7</b><small>memory, inference</small></div>
+          </div>
+        </article>
+        </div>
+  </section>
+
+  <section id="articles">
+    <div class="section-title"><h2>Articles / research / opinions</h2><div class="note">The stuff people are thinking, trying, arguing, and building with the tech. This is the main read pile.</div></div>
+    <div class="grid two">
+        <article class="card articles" data-kind="hn" data-score="51.5">
+          <div class="rank">#06</div>
+          <div class="card-main">
+            <div class="meta"><b>Hacker News</b> · hn · Aug 18</div>
+            <h3><a href="https://news.ycombinator.com/item?id=49356667">Ask HN: Are AI credits too locked to individual applications?</a></h3>
+            <div class="take"><b>Editor's read</b><p>A community-submitted project/thread. A title-first lead about: Ask HN: Are AI credits too locked to individual applications?. Skim it only if that maps to current agent/tooling work. Treat it as an early smoke signal, not a verdict. HN: 1 points, 1 comments. Query: AI agents tool use.</p></div>
+            <div class="take why"><b>Why you might care</b><p>HN is noisy, but comments surface implementation pain fast. Good for spotting whether a shiny thing survives contact with engineers.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>HN: 1 points, 1 comments. Query: AI agents tool use.</p></details>
+            <div class="tags"><span>hn</span><span>AI agents tool use</span></div>
+            <div class="score"><span>read</span><b>51.5</b><small>agent, agents, ai agent, tool use</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="hn" data-score="51.1">
+          <div class="rank">#07</div>
+          <div class="card-main">
+            <div class="meta"><b>Hacker News</b> · hn · Aug 18</div>
+            <h3><a href="https://resumeskip.com/">Show HN: ResumeSkip – automatically tailor your resume to jobs</a></h3>
+            <div class="take"><b>Editor's read</b><p>A community-submitted project/thread. A newly surfaced project/tool lead: automatically tailor your resume to jobs Treat it as an early smoke signal, not a verdict. HN: 2 points, 1 comments. Query: AI agents tool use.</p></div>
+            <div class="take why"><b>Why you might care</b><p>HN is noisy, but comments surface implementation pain fast. Good for spotting whether a shiny thing survives contact with engineers.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>HN: 2 points, 1 comments. Query: AI agents tool use.</p></details>
+            <div class="tags"><span>hn</span><span>AI agents tool use</span></div>
+            <div class="score"><span>read</span><b>51.1</b><small>agent, agents, ai agent, tool use</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="feed" data-score="50.9">
+          <div class="rank">#08</div>
+          <div class="card-main">
+            <div class="meta"><b>OpenAI News</b> · feed · Aug 18</div>
+            <h3><a href="https://openai.com/index/asana">Asana cleared 5 years of engineering work in 2 weeks with Codex</a></h3>
+            <div class="take"><b>Editor's read</b><p>A post from OpenAI News. Plain version: Asana used OpenAI Codex to replace an outdated testing system in two weeks, completing work expected to take five years for about $12K.</p></div>
+            <div class="take why"><b>Why you might care</b><p>Codex is turning into OpenAI’s agentic workbench. Worth tracking for cloud dev-env patterns, long-running task ergonomics, and places Hermes can stay lighter/local.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Asana used OpenAI Codex to replace an outdated testing system in two weeks, completing work expected to take five years for about $12K.</p></details>
+            <div class="tags"><span>openai</span><span>models</span><span>agents</span></div>
+            <div class="score"><span>read</span><b>50.9</b><small>agents, codex</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="feed" data-score="50.4">
+          <div class="rank">#09</div>
+          <div class="card-main">
+            <div class="meta"><b>OpenAI News</b> · feed · Aug 17</div>
+            <h3><a href="https://openai.com/index/nvidia/chatgpt-work">How NVIDIA scales expertise with ChatGPT Work</a></h3>
+            <div class="take"><b>Editor's read</b><p>A post from OpenAI News. Plain version: NVIDIA teams use ChatGPT Work to reduce manual tasks, connect fast-moving signals, and scale successful workflows globally.</p></div>
+            <div class="take why"><b>Why you might care</b><p>Kept because it matched the radar’s AI/agent/tooling filters. Skim title + source first; open only if it lines up with current Hermes/OAC work.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>NVIDIA teams use ChatGPT Work to reduce manual tasks, connect fast-moving signals, and scale successful workflows globally.</p></details>
+            <div class="tags"><span>openai</span><span>models</span><span>agents</span></div>
+            <div class="score"><span>read</span><b>50.4</b><small>agents, workflow</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="hn" data-score="49.0">
+          <div class="rank">#10</div>
+          <div class="card-main">
+            <div class="meta"><b>Hacker News</b> · hn · Aug 17</div>
+            <h3><a href="https://github.com/harnessrouter/harnessrouter">Show HN: HarnessRouter: Unified interface for agent harnesses</a></h3>
+            <div class="take"><b>Editor's read</b><p>A community-submitted project/thread. A title-first lead about: HarnessRouter: Unified interface for agent harnesses. Skim it only if that maps to current agent/tooling work. Treat it as an early smoke signal, not a verdict. HN: 9 points, 13 comments. Query: AI agents tool use.</p></div>
+            <div class="take why"><b>Why you might care</b><p>HN is noisy, but comments surface implementation pain fast. Good for spotting whether a shiny thing survives contact with engineers.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>HN: 9 points, 13 comments. Query: AI agents tool use.</p></details>
+            <div class="tags"><span>hn</span><span>AI agents tool use</span></div>
+            <div class="score"><span>read</span><b>49.0</b><small>agent, agents, ai agent, tool use</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="feed" data-score="45.0">
+          <div class="rank">#11</div>
+          <div class="card-main">
+            <div class="meta"><b>OpenAI News</b> · feed · Aug 18</div>
+            <h3><a href="https://openai.com/index/chatgpt-ads-expands-across-europe">ChatGPT Ads expands across Europe</a></h3>
+            <div class="take"><b>Editor's read</b><p>A post from OpenAI News. Plain version: ChatGPT Ads is expanding to 31 European markets.</p></div>
+            <div class="take why"><b>Why you might care</b><p>Kept because it matched the radar’s AI/agent/tooling filters. Skim title + source first; open only if it lines up with current Hermes/OAC work.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>ChatGPT Ads is expanding to 31 European markets. Learn how advertisers can reach people as they explore, compare options, and make decisions.</p></details>
+            <div class="tags"><span>openai</span><span>models</span><span>agents</span></div>
+            <div class="score"><span>read</span><b>45.0</b><small>agents</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="feed" data-score="45.0">
+          <div class="rank">#12</div>
+          <div class="card-main">
+            <div class="meta"><b>Latent Space</b> · feed · Aug 18</div>
+            <h3><a href="https://www.latent.space/p/glean-model-routing">Frontier Model Cost and Open-Weights Popularity is Driving Demand for Model Routing</a></h3>
+            <div class="take"><b>Editor's read</b><p>A post from Latent Space. Plain version: Glean CEO Arvind Jain explains why model routing helps control AI costs for organizations, and how human feedback loops at scale improve its routing systems.</p></div>
+            <div class="take why"><b>Why you might care</b><p>Kept because it matched the radar’s AI/agent/tooling filters. Skim title + source first; open only if it lines up with current Hermes/OAC work.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Glean CEO Arvind Jain explains why model routing helps control AI costs for organizations, and how human feedback loops at scale improve its routing systems.</p></details>
+            <div class="tags"><span>ai</span><span>industry</span><span>agents</span></div>
+            <div class="score"><span>read</span><b>45.0</b><small>agents</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="feed" data-score="45.0">
+          <div class="rank">#13</div>
+          <div class="card-main">
+            <div class="meta"><b>Simon Willison</b> · feed · Aug 18</div>
+            <h3><a href="https://simonwillison.net/2026/Aug/18/mojo-is-now-open-source/">Mojo🔥 is now open source</a></h3>
+            <div class="take"><b>Editor's read</b><p>A post from Simon Willison. Plain version: Mojo🔥 is now open source Mojo🔥 is now open source The Mojo programming language has been promising an open source release since May 2023 .</p></div>
+            <div class="take why"><b>Why you might care</b><p>Potentially useful for keeping your stack cheaper, more private, and less dependent on cloud APIs. Worth a skim if it looks practical.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Mojo🔥 is now open source Mojo🔥 is now open source The Mojo programming language has been promising an open source release since May 2023 . Last week they shipped their 1.0 and today they have followed through on that original promise, releasing the compiler and toolchain under an Apache 2 license. When Mojo first launched the stated goal was to produce a su…</p></details>
+            <div class="tags"><span>llm</span><span>tools</span><span>practical</span></div>
+            <div class="score"><span>read</span><b>45.0</b><small>open source</small></div>
+          </div>
+        </article>
+        
+        <article class="card articles" data-kind="feed" data-score="43.4">
+          <div class="rank">#14</div>
+          <div class="card-main">
+            <div class="meta"><b>Hugging Face Blog</b> · feed · Aug 17</div>
+            <h3><a href="https://huggingface.co/blog/multi-vector-encoder">Multi-Vector (Late Interaction) Embedding Models with Sentence Transformers</a></h3>
+            <div class="take"><b>Editor's read</b><p>A post from Hugging Face Blog. Plain version: A title-first lead about: Multi-Vector (Late Interaction) Embedding Models with Sentence Transformers. Skim it only if that maps to current agent/tooling work.</p></div>
+            <div class="take why"><b>Why you might care</b><p>Potentially useful for keeping your stack cheaper, more private, and less dependent on cloud APIs. Worth a skim if it looks practical.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>No summary from source. Open the link if this smells interesting.</p></details>
+            <div class="tags"><span>models</span><span>open-source</span><span>inference</span></div>
+            <div class="score"><span>read</span><b>43.4</b><small>inference</small></div>
+          </div>
+        </article>
+        </div>
+  </section>
+
+  <section id="updates">
+    <div class="section-title"><h2>Releases / software updates</h2><div class="note">Important for staying current, but intentionally below the longform material. Changelogs are seasoning, not dinner.</div></div>
+    <div class="grid two updates-grid">
+        <article class="card updates" data-kind="release" data-score="58.0">
+          <div class="rank">#01</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Aug 10</div>
+            <h3><a href="https://github.com/openai/openai-agents-python/releases/tag/v0.20.0">OpenAI Agents Python: v0.20.0</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from OpenAI Agents Python. Plain version: The default model is now gpt-5.6-lun…</p></div>
+            <div class="take why"><b>Why you might care</b><p>Competitive intel: how OpenAI thinks agent SDKs should work, where Hermes is ahead/behind, and patterns we might borrow without joining the mothership.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>## Key Changes Version 0.20.0 is a minor release because it changes the implicit default model and includes a potentially breaking MCP dependency migration for applications with customized local HTTP transports. MCP v1 remains supported, and affected applications can migrate to `httpx2` or pin `mcp&lt;2`. ### Highlights: - The default model is now `gpt-5.6-lun…</p></details>
+            <div class="tags"><span>agents</span><span>sdk</span><span>openai/openai-agents-python</span></div>
+            <div class="score"><span>watch release</span><b>58.0</b><small>agent, agents, ai agent, mcp</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="57.9">
+          <div class="rank">#02</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Aug 18</div>
+            <h3><a href="https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.18">Hermes Agent: Hermes Agent v0.20.4 (2026.8.18)</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from Hermes Agent. Plain version: A broad changelog-style release with lots of merged work. Skim it if you are deciding whether to upgrade or want to spot changed surfaces.</p></div>
+            <div class="take why"><b>Why you might care</b><p>Directly relevant to your agent stack. This can affect Hermes behavior, upgrade timing, plugins, gateway surfaces, or ideas worth stealing for OAC/DestructoR666.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p># Hermes Agent v0.20.4 (v2026.8.18) **Release Date:** August 18, 2026 &gt; Patch release. This tag rolls up the ~74 PRs merged since v0.20.3 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs). --- ## About this release Since v0.20.3 (v2026.8.16.2, tagged August 17), this window landed **~146 commits** acro…</p></details>
+            <div class="tags"><span>hermes</span><span>agent-ops</span><span>NousResearch/hermes-agent</span></div>
+            <div class="score"><span>watch release</span><b>57.9</b><small>hermes, hermes</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="57.0">
+          <div class="rank">#03</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Aug 17</div>
+            <h3><a href="https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.16.2">Hermes Agent: Hermes Agent v0.20.3 (2026.8.16.2)</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from Hermes Agent. Plain version: A broad changelog-style release with lots of merged work. Skim it if you are deciding whether to upgrade or want to spot changed surfaces.</p></div>
+            <div class="take why"><b>Why you might care</b><p>Directly relevant to your agent stack. This can affect Hermes behavior, upgrade timing, plugins, gateway surfaces, or ideas worth stealing for OAC/DestructoR666.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p># Hermes Agent v0.20.3 (v2026.8.16.2) **Release Date:** August 16, 2026 &gt; Patch release. This tag rolls up the ~125 PRs merged since v0.20.2 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs). --- ## About this release Since v0.20.2 (v2026.8.16, tagged earlier today), this window landed **~250 commits**…</p></details>
+            <div class="tags"><span>hermes</span><span>agent-ops</span><span>NousResearch/hermes-agent</span></div>
+            <div class="score"><span>watch release</span><b>57.0</b><small>hermes, hermes</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="44.5">
+          <div class="rank">#04</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Aug 16</div>
+            <h3><a href="https://github.com/openai/openai-agents-python/releases/tag/v0.21.1">OpenAI Agents Python: v0.21.1</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from OpenAI Agents Python. Plain version: feat(core): add model call timeouts by @seratch in * feat(sandbox): add run-scoped sandbox working directories by @seratch in * feat(sandbox): allow Docker sandboxes to disable networking by @koadegno in</p></div>
+            <div class="take why"><b>Why you might care</b><p>Competitive intel: how OpenAI thinks agent SDKs should work, where Hermes is ahead/behind, and patterns we might borrow without joining the mothership.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>## What&#x27;s Changed * feat(core): add model call timeouts by @seratch in https://github.com/openai/openai-agents-python/pull/4428 * feat(sandbox): add run-scoped sandbox working directories by @seratch in https://github.com/openai/openai-agents-python/pull/4427 * feat(sandbox): allow Docker sandboxes to disable networking by @koadegno in https://github.com/op…</p></details>
+            <div class="tags"><span>agents</span><span>sdk</span><span>openai/openai-agents-python</span></div>
+            <div class="score"><span>watch release</span><b>44.5</b><small>agents, ai agent, openai agents</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="37.0">
+          <div class="rank">#05</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Jul 28</div>
+            <h3><a href="https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.0.0">MCP Python SDK: v2.0.0</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from MCP Python SDK. Plain version: MCP Python SDK v2 Stable Release This is v2.0.0, the stable v2 release of the MCP Python SDK.</p></div>
+            <div class="take why"><b>Why you might care</b><p>MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p># MCP Python SDK v2 Stable Release This is v2.0.0, the stable v2 release of the MCP Python SDK. It supports the 2026-07-28 revision of the Model Context Protocol and serves every earlier revision from the same server. `pip install mcp` now installs 2.x. ```bash pip install &quot;mcp[cli]&quot; # or uv add &quot;mcp[cli]&quot; ``` ### Documentation Rewrite The [documentation](h…</p></details>
+            <div class="tags"><span>mcp</span><span>tools</span><span>modelcontextprotocol/python-sdk</span></div>
+            <div class="score"><span>skim changelog</span><b>37.0</b><small>mcp, model context protocol</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="34.5">
+          <div class="rank">#06</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Aug 18</div>
+            <h3><a href="https://github.com/pydantic/pydantic-ai/releases/tag/v2.32.0">Pydantic AI: v2.32.0 (2026-08-18)</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from Pydantic AI. Plain version: 🚀 Features * Suggest known model names for invalid identifiers by @dsfaccini in * Support xAI attachment search lifecycle by @colesmcintosh in * Surface OpenRouter web-search sources in provider_details[&quot;annotations&quot;] by @dsfacci…</p></div>
+            <div class="take why"><b>Why you might care</b><p>Competitive intel: how OpenAI thinks agent SDKs should work, where Hermes is ahead/behind, and patterns we might borrow without joining the mothership.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>## What&#x27;s Changed ### 🚀 Features * Suggest known model names for invalid identifiers by @dsfaccini in https://github.com/pydantic/pydantic-ai/pull/7325 * Support xAI attachment search lifecycle by @colesmcintosh in https://github.com/pydantic/pydantic-ai/pull/7156 * Surface OpenRouter web-search sources in `provider_details[&quot;annotations&quot;]` by @dsfaccini in…</p></details>
+            <div class="tags"><span>agents</span><span>python</span><span>pydantic/pydantic-ai</span></div>
+            <div class="score"><span>skim changelog</span><b>34.5</b><small>agents</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="32.6">
+          <div class="rank">#07</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Aug 17</div>
+            <h3><a href="https://github.com/pydantic/pydantic-ai/releases/tag/v2.31.1">Pydantic AI: v2.31.1 (2026-08-17)</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from Pydantic AI. Plain version: Deny native structured output for Claude Sonnet 5 and Fable 5 on Bedrock by @pydanty[bot] in * Fall back to thinking_level=&#x27;LOW&#x27; for Gemini models that reject MINIMAL by @pydanty[bot] in Full Changelog:</p></div>
+            <div class="take why"><b>Why you might care</b><p>Competitive intel: how OpenAI thinks agent SDKs should work, where Hermes is ahead/behind, and patterns we might borrow without joining the mothership.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>## What&#x27;s Changed ### 🐛 Bug Fixes * Deny native structured output for Claude Sonnet 5 and Fable 5 on Bedrock by @pydanty[bot] in https://github.com/pydantic/pydantic-ai/pull/7374 * Fall back to `thinking_level=&#x27;LOW&#x27;` for Gemini models that reject `MINIMAL` by @pydanty[bot] in https://github.com/pydantic/pydantic-ai/pull/7469 **Full Changelog**: https://gith…</p></details>
+            <div class="tags"><span>agents</span><span>python</span><span>pydantic/pydantic-ai</span></div>
+            <div class="score"><span>skim changelog</span><b>32.6</b><small>agents</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="30.0">
+          <div class="rank">#08</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Aug 11</div>
+            <h3><a href="https://github.com/langchain-ai/langgraph/releases/tag/1.2.11">LangGraph: langgraph==1.2.11</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from LangGraph. Plain version: 1.2.10 * release(langgraph): 1.2.11 (#8595) * feat(langgraph): expose trace_policy on add_node (#8523) * chore(deps): bump the minor-and-patch group across 1 directory with 7 updates (#8533) * chore(deps): bump the minor-and-patc…</p></div>
+            <div class="take why"><b>Why you might care</b><p>Useful as a contrast model for workflow/stateful agents. Even if we do not adopt it, it exposes design patterns and footguns for OAC-style continuity.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Changes since 1.2.10 * release(langgraph): 1.2.11 (#8595) * feat(langgraph): expose `trace_policy` on `add_node` (#8523) * chore(deps): bump the minor-and-patch group across 1 directory with 7 updates (#8533) * chore(deps): bump the minor-and-patch group across 1 directory with 5 updates (#8532) * release(checkpoint-postgres): 3.1.2 (#8565) * release(checkp…</p></details>
+            <div class="tags"><span>agents</span><span>workflow</span><span>langchain-ai/langgraph</span></div>
+            <div class="score"><span>skim changelog</span><b>30.0</b><small>agents, workflow</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="30.0">
+          <div class="rank">#09</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Aug 7</div>
+            <h3><a href="https://github.com/langchain-ai/langgraph/releases/tag/checkpointpostgres%3D%3D3.1.2">LangGraph: langgraph-checkpoint-postgres==3.1.2</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from LangGraph. Plain version: checkpointpostgres==3.1.1 * release(checkpoint-postgres): 3.1.2 (#8565) * release(checkpoint): 4.2.0 (#8563) * test(checkpoint-postgres,checkpoint-sqlite): run the conformance suite (#8537) * fix(checkpoint-postgres): find plain-…</p></div>
+            <div class="take why"><b>Why you might care</b><p>Useful as a contrast model for workflow/stateful agents. Even if we do not adopt it, it exposes design patterns and footguns for OAC-style continuity.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>Changes since checkpointpostgres==3.1.1 * release(checkpoint-postgres): 3.1.2 (#8565) * release(checkpoint): 4.2.0 (#8563) * test(checkpoint-postgres,checkpoint-sqlite): run the conformance suite (#8537) * fix(checkpoint-postgres): find plain-value seeds when walking delta history (#8535) * chore: enable RUF100 and clear unused noqa directives (#8546) * cho…</p></details>
+            <div class="tags"><span>agents</span><span>workflow</span><span>langchain-ai/langgraph</span></div>
+            <div class="score"><span>skim changelog</span><b>30.0</b><small>agents, workflow</small></div>
+          </div>
+        </article>
+        
+        <article class="card updates" data-kind="release" data-score="30.0">
+          <div class="rank">#10</div>
+          <div class="card-main">
+            <div class="meta"><b>GitHub</b> · release · Jul 28</div>
+            <h3><a href="https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.29.0">MCP Python SDK: v1.29.0</a></h3>
+            <div class="take"><b>Release note</b><p>A new release/update from MCP Python SDK. Plain version: [v1.x] Route Context.report_progress() to the originating request stream by @maxisbey in * [v1.x] docs: publish llms.txt and markdown renditions of the docs by @maxisbey in * [v1.x] docs: pin mkdocs&lt;2 by @maxisbey in…</p></div>
+            <div class="take why"><b>Why you might care</b><p>MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.</p></div>
+            <details class="raw"><summary>Source excerpt</summary><p>## What&#x27;s Changed * [v1.x] Route Context.report_progress() to the originating request stream by @maxisbey in https://github.com/modelcontextprotocol/python-sdk/pull/2994 * [v1.x] docs: publish llms.txt and markdown renditions of the docs by @maxisbey in https://github.com/modelcontextprotocol/python-sdk/pull/3029 * [v1.x] docs: pin mkdocs&lt;2 by @maxisbey in…</p></details>
+            <div class="tags"><span>mcp</span><span>tools</span><span>modelcontextprotocol/python-sdk</span></div>
+            <div class="score"><span>skim changelog</span><b>30.0</b><small>mcp</small></div>
+          </div>
+        </article>
+        </div>
+  </section>
+
+  <section id="radar">
+    <div class="section-title"><h2>Radar stats</h2><div class="note">V0 uses dumb-but-transparent scoring. Future versions can add LLM judgment after collection is bounded.</div></div>
+    <div class="stats">
+      <div class="stat"><b>80</b><small>total leads</small></div>
+      <div class="stat"><b>24</b><small>printed</small></div>
+      <div class="stat"><b>8</b><small>sources hit</small></div>
+      <div class="stat"><b>$0</b><small>X API spend</small></div>
+    </div>
+    <div class="counts"><span><b>17</b>feed</span><span><b>15</b>hn</span><span><b>22</b>reddit</span><span><b>26</b>release</span></div>
+  </section>
+
+  <section id="method" class="manifesto">
+    <h2>Editorial stance</h2>
+    <p><b>Twitter is a goblin with binoculars, not the editorial board.</b> V0 watches free sources first: RSS, Reddit, GitHub, HN, arXiv. Articles, research, opinionated field notes, and real user pain reports get top billing; releases are parked lower because staying current matters, but changelog spelunking is not a personality.</p>
+    <ul>
+      <li>Promote: people thinking/doing/building with agents, MCP, memory/continuity, evals, local inference, and practical engineering.</li>
+      <li>Separate: vendor releases and software updates live in their own section below the read pile.</li>
+      <li>Demote: engagement bait, vague launch confetti, crypto price sewage, “10x” sludge.</li>
+      <li>Suppress: article/research/opinion links already printed in a recent issue, so the next issue does not become yesterday wearing a fake mustache.</li>
+      <li>Summarize: fetch linked-page descriptions when feed summaries are blank/title-only, then fall back to title-aware editorial blurbs instead of copy-pasting the headline.</li>
+      <li>Next useful upgrade: a slower LLM editor pass that deep-reads only the top candidates and writes sharper “read/skim/ignore” calls.</li>
+    </ul>
+  </section>
+
+  <section id="logs">
+    <div class="section-title"><h2>Collector logs</h2><div class="note">Receipts and failures. The web remains held together by raccoon string.</div></div>
+    <ul class="errors"><li>feed:Anthropic News: HTTP 404</li><li>reddit:r/openclaw: all feed attempts failed (https://www.reddit.com/r/openclaw/new/.rss?limit=10: HTTP 429; https://old.reddit.com/r/openclaw/new/.rss?limit=10: HTTP 429; https://rsshub.rssforever.com/reddit/subreddit/openclaw: HTTP 503)</li><li>reddit:r/LocalLLaMA: all feed attempts failed (https://www.reddit.com/r/LocalLLaMA/new/.rss?limit=10: HTTP 429; https://old.reddit.com/r/LocalLLaMA/new/.rss?limit=10: HTTP 429; https://rsshub.rssforever.com/reddit/subreddit/LocalLLaMA: HTTP 503)</li><li>reddit:r/LocalLLM: all feed attempts failed (https://www.reddit.com/r/LocalLLM/new/.rss?limit=10: HTTP 429; https://old.reddit.com/r/LocalLLM/new/.rss?limit=10: HTTP 429; https://rsshub.rssforever.com/reddit/subreddit/LocalLLM: HTTP 503)</li><li>reddit:r/AI_Agents: all feed attempts failed (https://www.reddit.com/r/AI_Agents/new/.rss?limit=10: HTTP 429; https://old.reddit.com/r/AI_Agents/new/.rss?limit=10: HTTP 429; https://rsshub.rssforever.com/reddit/subreddit/AI_Agents: HTTP 503)</li><li>reddit:r/MachineLearning: all feed attempts failed (https://www.reddit.com/r/MachineLearning/new/.rss?limit=8: HTTP 429; https://old.reddit.com/r/MachineLearning/new/.rss?limit=8: HTTP 429; https://rsshub.rssforever.com/reddit/subreddit/MachineLearning: HTTP 503)</li><li>reddit:r/artificial: all feed attempts failed (https://www.reddit.com/r/artificial/new/.rss?limit=8: HTTP 429; https://old.reddit.com/r/artificial/new/.rss?limit=8: HTTP 429; https://rsshub.rssforever.com/reddit/subreddit/artificial: HTTP 503)</li><li>reddit:r/OpenAI: all feed attempts failed (https://www.reddit.com/r/OpenAI/new/.rss?limit=8: HTTP 429; https://old.reddit.com/r/OpenAI/new/.rss?limit=8: HTTP 429; https://rsshub.rssforever.com/reddit/subreddit/OpenAI: HTTP 503)</li><li>reddit:r/ClaudeAI: all feed attempts failed (https://www.reddit.com/r/ClaudeAI/new/.rss?limit=8: HTTP 429; https://old.reddit.com/r/ClaudeAI/new/.rss?limit=8: HTTP 429; https://rsshub.rssforever.com/reddit/subreddit/ClaudeAI: HTTP 503)</li><li>arxiv:agentic AI tool use: HTTP 429</li><li>arxiv:large language model agents memory: HTTP 429</li><li>arxiv:LLM evaluation benchmark agents: HTTP 429</li><li>summary:Hacker News: Ask HN: Are AI credits too locked to individual applications?: no useful page description</li><li>summary:Hacker News: Ask HN: How are teams sharing AI/agent setups internally?: no useful page description</li><li>summary:Hacker News: Ask HN: Is neuromorphic computing going to replace traditional AI?: no useful page description</li><li>summary:Hacker News: Ask HN: What can I do with a single R9700?: no useful page description</li><li>summary:Hacker News: Bad MCP design costs your agent 5x more tokens: no useful page description</li><li>summary: fetched linked-page descriptions for 6 title-only/blank candidates</li><li>repeat-filter: suppressed 38 articles already printed in the last 21 days</li></ul>
+  </section>
+
+  <footer class="footer">
+    Generated locally by <code>~/.hermes/ai-radar/ai_radar_zine.py</code> from <code>sources.json</code>. Raw top items embedded below for future tooling.
+    <script type="application/json" id="radar-data">[{&quot;title&quot;: &quot;One year ago I was a factory mechanic. Today I run a business around my AI agent. all possible because of Hermes&quot;, &quot;url&quot;: &quot;https://www.reddit.com/r/hermesagent/comments/1vsiamp/one_year_ago_i_was_a_factory_mechanic_today_i_run/&quot;, &quot;source&quot;: &quot;r/hermesagent&quot;, &quot;kind&quot;: &quot;reddit&quot;, &quot;published&quot;: &quot;2026-08-19T10:13:43+00:00&quot;, &quot;summary&quot;: &quot;his post is basically a love letter to the Nous team, Peter Steinberg who got me into AI agents, AI in general, and of course you (my dear readers). I have never talked about my past as openly as I am talking about it today. Only one year back I still worked full-time as an industrial mechanic in a factory. But let&#x27;s start from the beginning. I was really b…&quot;, &quot;tags&quot;: [&quot;reddit&quot;, &quot;hermes&quot;, &quot;agents&quot;, &quot;hermesagent&quot;], &quot;score&quot;: 67.9, &quot;reasons&quot;: [&quot;hermes&quot;, &quot;hermes&quot;, &quot;agents&quot;, &quot;ai agent&quot;], &quot;plain&quot;: &quot;A Reddit field report/discussion from r/hermesagent. Plain version: his post is basically a love letter to the Nous team, Peter Steinberg who got me into AI agents, AI in general, and of course you (my dear readers).&quot;, &quot;why&quot;: &quot;Directly relevant to your agent stack. This can affect Hermes behavior, upgrade timing, plugins, gateway surfaces, or ideas worth stealing for OAC/DestructoR666.&quot;}, {&quot;title&quot;: &quot;anyone know of a great uncensored llm to host even locally?&quot;, &quot;url&quot;: &quot;https://www.reddit.com/r/hermesagent/comments/1vsex8l/anyone_know_of_a_great_uncensored_llm_to_host/&quot;, &quot;source&quot;: &quot;r/hermesagent&quot;, &quot;kind&quot;: &quot;reddit&quot;, &quot;published&quot;: &quot;2026-08-19T06:58:46+00:00&quot;, &quot;summary&quot;: &quot;not for anything crazy but these stupid commercial llms cant even work on security for one of my sites im building- its so annoying bro submitted by /u/RosalbaaaaAAbbey [link] [comments]&quot;, &quot;tags&quot;: [&quot;reddit&quot;, &quot;hermes&quot;, &quot;agents&quot;, &quot;hermesagent&quot;], &quot;score&quot;: 67.7, &quot;reasons&quot;: [&quot;hermes&quot;, &quot;hermes&quot;, &quot;agent&quot;, &quot;agents&quot;], &quot;plain&quot;: &quot;A Reddit field report/discussion from r/hermesagent. Plain version: not for anything crazy but these stupid commercial llms cant even work on security for one of my sites im building- its so annoying bro submitted by /u/RosalbaaaaAAbbey [link] [comments]&quot;, &quot;why&quot;: &quot;Directly relevant to your agent stack. This can affect Hermes behavior, upgrade timing, plugins, gateway surfaces, or ideas worth stealing for OAC/DestructoR666.&quot;}, {&quot;title&quot;: &quot;I&#x27;m using Muse Spark 1.2 Contrib right now. Mark can have my data!&quot;, &quot;url&quot;: &quot;https://www.reddit.com/r/hermesagent/comments/1vsikia/im_using_muse_spark_12_contrib_right_now_mark_can/&quot;, &quot;source&quot;: &quot;r/hermesagent&quot;, &quot;kind&quot;: &quot;reddit&quot;, &quot;published&quot;: &quot;2026-08-19T10:28:19+00:00&quot;, &quot;summary&quot;: &quot;https://preview.redd.it/hg9oohuk6bkh1.png?width=827&amp;format=png&amp;auto=webp&amp;s=847f9751756419e661bd92fdb79f7faed6def57e I was miserable the moment Deepseek bump up the price. It seems I have a Muse Spark 1.2 contrib to the rescue for now. Let&#x27;s see what change in another 2 weeks. This age is crazy man. submitted by /u/GTHell [link] [comments]&quot;, &quot;tags&quot;: [&quot;reddit&quot;, &quot;hermes&quot;, &quot;agents&quot;, &quot;hermesagent&quot;], &quot;score&quot;: 61.0, &quot;reasons&quot;: [&quot;hermes&quot;, &quot;hermes&quot;, &quot;agents&quot;], &quot;plain&quot;: &quot;A Reddit field report/discussion from r/hermesagent. Plain version: I was miserable the moment Deepseek bump up the price.&quot;, &quot;why&quot;: &quot;Directly relevant to your agent stack. This can affect Hermes behavior, upgrade timing, plugins, gateway surfaces, or ideas worth stealing for OAC/DestructoR666.&quot;}, {&quot;title&quot;: &quot;[AINews] Memory prices up 500% in 12 months&quot;, &quot;url&quot;: &quot;https://www.latent.space/p/ainews-memory-prices-up-500-in-12&quot;, &quot;source&quot;: &quot;Latent Space&quot;, &quot;kind&quot;: &quot;feed&quot;, &quot;published&quot;: &quot;2026-08-19T08:44:52+00:00&quot;, &quot;summary&quot;: &quot;the Memory crunch continues - Moore’s Law reversed to 2007 levels&quot;, &quot;tags&quot;: [&quot;ai&quot;, &quot;industry&quot;, &quot;agents&quot;], &quot;score&quot;: 52.8, &quot;reasons&quot;: [&quot;agents&quot;, &quot;memory&quot;], &quot;plain&quot;: &quot;A post from Latent Space. Plain version: the Memory crunch continues - Moore’s Law reversed to 2007 levels&quot;, &quot;why&quot;: &quot;This maps directly onto OAC: what agents remember, what they should forget, and how not to build a cursed context landfill.&quot;}, {&quot;title&quot;: &quot;How Much Memory Does Your Agent Actually Need?&quot;, &quot;url&quot;: &quot;https://huggingface.co/blog/ibm-research/altk-evolve-hmm&quot;, &quot;source&quot;: &quot;Hugging Face Blog&quot;, &quot;kind&quot;: &quot;feed&quot;, &quot;published&quot;: &quot;2026-08-18T18:09:38+00:00&quot;, &quot;summary&quot;: &quot;&quot;, &quot;tags&quot;: [&quot;models&quot;, &quot;open-source&quot;, &quot;inference&quot;], &quot;score&quot;: 51.7, &quot;reasons&quot;: [&quot;memory&quot;, &quot;inference&quot;], &quot;plain&quot;: &quot;A post from Hugging Face Blog. Plain version: A title-first lead about: How Much Memory Does Your Agent Actually Need?. Skim it only if that maps to current agent/tooling work.&quot;, &quot;why&quot;: &quot;This maps directly onto OAC: what agents remember, what they should forget, and how not to build a cursed context landfill.&quot;}, {&quot;title&quot;: &quot;Ask HN: Are AI credits too locked to individual applications?&quot;, &quot;url&quot;: &quot;https://news.ycombinator.com/item?id=49356667&quot;, &quot;source&quot;: &quot;Hacker News&quot;, &quot;kind&quot;: &quot;hn&quot;, &quot;published&quot;: &quot;2026-08-19T04:08:42+00:00&quot;, &quot;summary&quot;: &quot;HN: 1 points, 1 comments. Query: AI agents tool use.&quot;, &quot;tags&quot;: [&quot;hn&quot;, &quot;AI agents tool use&quot;], &quot;score&quot;: 51.5, &quot;reasons&quot;: [&quot;agent&quot;, &quot;agents&quot;, &quot;ai agent&quot;, &quot;tool use&quot;], &quot;plain&quot;: &quot;A community-submitted project/thread. A title-first lead about: Ask HN: Are AI credits too locked to individual applications?. Skim it only if that maps to current agent/tooling work. Treat it as an early smoke signal, not a verdict. HN: 1 points, 1 comments. Query: AI agents tool use.&quot;, &quot;why&quot;: &quot;HN is noisy, but comments surface implementation pain fast. Good for spotting whether a shiny thing survives contact with engineers.&quot;}, {&quot;title&quot;: &quot;Show HN: ResumeSkip – automatically tailor your resume to jobs&quot;, &quot;url&quot;: &quot;https://resumeskip.com/&quot;, &quot;source&quot;: &quot;Hacker News&quot;, &quot;kind&quot;: &quot;hn&quot;, &quot;published&quot;: &quot;2026-08-18T23:08:56+00:00&quot;, &quot;summary&quot;: &quot;HN: 2 points, 1 comments. Query: AI agents tool use.&quot;, &quot;tags&quot;: [&quot;hn&quot;, &quot;AI agents tool use&quot;], &quot;score&quot;: 51.1, &quot;reasons&quot;: [&quot;agent&quot;, &quot;agents&quot;, &quot;ai agent&quot;, &quot;tool use&quot;], &quot;plain&quot;: &quot;A community-submitted project/thread. A newly surfaced project/tool lead: automatically tailor your resume to jobs Treat it as an early smoke signal, not a verdict. HN: 2 points, 1 comments. Query: AI agents tool use.&quot;, &quot;why&quot;: &quot;HN is noisy, but comments surface implementation pain fast. Good for spotting whether a shiny thing survives contact with engineers.&quot;}, {&quot;title&quot;: &quot;Asana cleared 5 years of engineering work in 2 weeks with Codex&quot;, &quot;url&quot;: &quot;https://openai.com/index/asana&quot;, &quot;source&quot;: &quot;OpenAI News&quot;, &quot;kind&quot;: &quot;feed&quot;, &quot;published&quot;: &quot;2026-08-18T07:00:00+00:00&quot;, &quot;summary&quot;: &quot;Asana used OpenAI Codex to replace an outdated testing system in two weeks, completing work expected to take five years for about $12K.&quot;, &quot;tags&quot;: [&quot;openai&quot;, &quot;models&quot;, &quot;agents&quot;], &quot;score&quot;: 50.9, &quot;reasons&quot;: [&quot;agents&quot;, &quot;codex&quot;], &quot;plain&quot;: &quot;A post from OpenAI News. Plain version: Asana used OpenAI Codex to replace an outdated testing system in two weeks, completing work expected to take five years for about $12K.&quot;, &quot;why&quot;: &quot;Codex is turning into OpenAI’s agentic workbench. Worth tracking for cloud dev-env patterns, long-running task ergonomics, and places Hermes can stay lighter/local.&quot;}, {&quot;title&quot;: &quot;How NVIDIA scales expertise with ChatGPT Work&quot;, &quot;url&quot;: &quot;https://openai.com/index/nvidia/chatgpt-work&quot;, &quot;source&quot;: &quot;OpenAI News&quot;, &quot;kind&quot;: &quot;feed&quot;, &quot;published&quot;: &quot;2026-08-18T00:00:00+00:00&quot;, &quot;summary&quot;: &quot;NVIDIA teams use ChatGPT Work to reduce manual tasks, connect fast-moving signals, and scale successful workflows globally.&quot;, &quot;tags&quot;: [&quot;openai&quot;, &quot;models&quot;, &quot;agents&quot;], &quot;score&quot;: 50.4, &quot;reasons&quot;: [&quot;agents&quot;, &quot;workflow&quot;], &quot;plain&quot;: &quot;A post from OpenAI News. Plain version: NVIDIA teams use ChatGPT Work to reduce manual tasks, connect fast-moving signals, and scale successful workflows globally.&quot;, &quot;why&quot;: &quot;Kept because it matched the radar’s AI/agent/tooling filters. Skim title + source first; open only if it lines up with current Hermes/OAC work.&quot;}, {&quot;title&quot;: &quot;Show HN: HarnessRouter: Unified interface for agent harnesses&quot;, &quot;url&quot;: &quot;https://github.com/harnessrouter/harnessrouter&quot;, &quot;source&quot;: &quot;Hacker News&quot;, &quot;kind&quot;: &quot;hn&quot;, &quot;published&quot;: &quot;2026-08-17T18:33:38+00:00&quot;, &quot;summary&quot;: &quot;HN: 9 points, 13 comments. Query: AI agents tool use.&quot;, &quot;tags&quot;: [&quot;hn&quot;, &quot;AI agents tool use&quot;], &quot;score&quot;: 49.0, &quot;reasons&quot;: [&quot;agent&quot;, &quot;agents&quot;, &quot;ai agent&quot;, &quot;tool use&quot;], &quot;plain&quot;: &quot;A community-submitted project/thread. A title-first lead about: HarnessRouter: Unified interface for agent harnesses. Skim it only if that maps to current agent/tooling work. Treat it as an early smoke signal, not a verdict. HN: 9 points, 13 comments. Query: AI agents tool use.&quot;, &quot;why&quot;: &quot;HN is noisy, but comments surface implementation pain fast. Good for spotting whether a shiny thing survives contact with engineers.&quot;}, {&quot;title&quot;: &quot;ChatGPT Ads expands across Europe&quot;, &quot;url&quot;: &quot;https://openai.com/index/chatgpt-ads-expands-across-europe&quot;, &quot;source&quot;: &quot;OpenAI News&quot;, &quot;kind&quot;: &quot;feed&quot;, &quot;published&quot;: &quot;2026-08-18T22:00:00+00:00&quot;, &quot;summary&quot;: &quot;ChatGPT Ads is expanding to 31 European markets. Learn how advertisers can reach people as they explore, compare options, and make decisions.&quot;, &quot;tags&quot;: [&quot;openai&quot;, &quot;models&quot;, &quot;agents&quot;], &quot;score&quot;: 45.0, &quot;reasons&quot;: [&quot;agents&quot;], &quot;plain&quot;: &quot;A post from OpenAI News. Plain version: ChatGPT Ads is expanding to 31 European markets.&quot;, &quot;why&quot;: &quot;Kept because it matched the radar’s AI/agent/tooling filters. Skim title + source first; open only if it lines up with current Hermes/OAC work.&quot;}, {&quot;title&quot;: &quot;Frontier Model Cost and Open-Weights Popularity is Driving Demand for Model Routing&quot;, &quot;url&quot;: &quot;https://www.latent.space/p/glean-model-routing&quot;, &quot;source&quot;: &quot;Latent Space&quot;, &quot;kind&quot;: &quot;feed&quot;, &quot;published&quot;: &quot;2026-08-18T21:41:10+00:00&quot;, &quot;summary&quot;: &quot;Glean CEO Arvind Jain explains why model routing helps control AI costs for organizations, and how human feedback loops at scale improve its routing systems.&quot;, &quot;tags&quot;: [&quot;ai&quot;, &quot;industry&quot;, &quot;agents&quot;], &quot;score&quot;: 45.0, &quot;reasons&quot;: [&quot;agents&quot;], &quot;plain&quot;: &quot;A post from Latent Space. Plain version: Glean CEO Arvind Jain explains why model routing helps control AI costs for organizations, and how human feedback loops at scale improve its routing systems.&quot;, &quot;why&quot;: &quot;Kept because it matched the radar’s AI/agent/tooling filters. Skim title + source first; open only if it lines up with current Hermes/OAC work.&quot;}, {&quot;title&quot;: &quot;Mojo🔥 is now open source&quot;, &quot;url&quot;: &quot;https://simonwillison.net/2026/Aug/18/mojo-is-now-open-source/&quot;, &quot;source&quot;: &quot;Simon Willison&quot;, &quot;kind&quot;: &quot;feed&quot;, &quot;published&quot;: &quot;2026-08-18T21:39:20+00:00&quot;, &quot;summary&quot;: &quot;Mojo🔥 is now open source Mojo🔥 is now open source The Mojo programming language has been promising an open source release since May 2023 . Last week they shipped their 1.0 and today they have followed through on that original promise, releasing the compiler and toolchain under an Apache 2 license. When Mojo first launched the stated goal was to produce a su…&quot;, &quot;tags&quot;: [&quot;llm&quot;, &quot;tools&quot;, &quot;practical&quot;], &quot;score&quot;: 45.0, &quot;reasons&quot;: [&quot;open source&quot;], &quot;plain&quot;: &quot;A post from Simon Willison. Plain version: Mojo🔥 is now open source Mojo🔥 is now open source The Mojo programming language has been promising an open source release since May 2023 .&quot;, &quot;why&quot;: &quot;Potentially useful for keeping your stack cheaper, more private, and less dependent on cloud APIs. Worth a skim if it looks practical.&quot;}, {&quot;title&quot;: &quot;Multi-Vector (Late Interaction) Embedding Models with Sentence Transformers&quot;, &quot;url&quot;: &quot;https://huggingface.co/blog/multi-vector-encoder&quot;, &quot;source&quot;: &quot;Hugging Face Blog&quot;, &quot;kind&quot;: &quot;feed&quot;, &quot;published&quot;: &quot;2026-08-18T00:00:00+00:00&quot;, &quot;summary&quot;: &quot;&quot;, &quot;tags&quot;: [&quot;models&quot;, &quot;open-source&quot;, &quot;inference&quot;], &quot;score&quot;: 43.4, &quot;reasons&quot;: [&quot;inference&quot;], &quot;plain&quot;: &quot;A post from Hugging Face Blog. Plain version: A title-first lead about: Multi-Vector (Late Interaction) Embedding Models with Sentence Transformers. Skim it only if that maps to current agent/tooling work.&quot;, &quot;why&quot;: &quot;Potentially useful for keeping your stack cheaper, more private, and less dependent on cloud APIs. Worth a skim if it looks practical.&quot;}, {&quot;title&quot;: &quot;OpenAI Agents Python: v0.20.0&quot;, &quot;url&quot;: &quot;https://github.com/openai/openai-agents-python/releases/tag/v0.20.0&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-08-11T03:12:14+00:00&quot;, &quot;summary&quot;: &quot;## Key Changes Version 0.20.0 is a minor release because it changes the implicit default model and includes a potentially breaking MCP dependency migration for applications with customized local HTTP transports. MCP v1 remains supported, and affected applications can migrate to `httpx2` or pin `mcp&lt;2`. ### Highlights: - The default model is now `gpt-5.6-lun…&quot;, &quot;tags&quot;: [&quot;agents&quot;, &quot;sdk&quot;, &quot;openai/openai-agents-python&quot;], &quot;score&quot;: 58.0, &quot;reasons&quot;: [&quot;agent&quot;, &quot;agents&quot;, &quot;ai agent&quot;, &quot;mcp&quot;], &quot;plain&quot;: &quot;A new release/update from OpenAI Agents Python. Plain version: The default model is now gpt-5.6-lun…&quot;, &quot;why&quot;: &quot;Competitive intel: how OpenAI thinks agent SDKs should work, where Hermes is ahead/behind, and patterns we might borrow without joining the mothership.&quot;}, {&quot;title&quot;: &quot;Hermes Agent: Hermes Agent v0.20.4 (2026.8.18)&quot;, &quot;url&quot;: &quot;https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.18&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-08-18T07:26:46+00:00&quot;, &quot;summary&quot;: &quot;# Hermes Agent v0.20.4 (v2026.8.18) **Release Date:** August 18, 2026 &gt; Patch release. This tag rolls up the ~74 PRs merged since v0.20.3 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs). --- ## About this release Since v0.20.3 (v2026.8.16.2, tagged August 17), this window landed **~146 commits** acro…&quot;, &quot;tags&quot;: [&quot;hermes&quot;, &quot;agent-ops&quot;, &quot;NousResearch/hermes-agent&quot;], &quot;score&quot;: 57.9, &quot;reasons&quot;: [&quot;hermes&quot;, &quot;hermes&quot;], &quot;plain&quot;: &quot;A new release/update from Hermes Agent. Plain version: A broad changelog-style release with lots of merged work. Skim it if you are deciding whether to upgrade or want to spot changed surfaces.&quot;, &quot;why&quot;: &quot;Directly relevant to your agent stack. This can affect Hermes behavior, upgrade timing, plugins, gateway surfaces, or ideas worth stealing for OAC/DestructoR666.&quot;}, {&quot;title&quot;: &quot;Hermes Agent: Hermes Agent v0.20.3 (2026.8.16.2)&quot;, &quot;url&quot;: &quot;https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.16.2&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-08-17T18:43:27+00:00&quot;, &quot;summary&quot;: &quot;# Hermes Agent v0.20.3 (v2026.8.16.2) **Release Date:** August 16, 2026 &gt; Patch release. This tag rolls up the ~125 PRs merged since v0.20.2 into a stable tagged release for downstream consumers (Docker images, hosted deployments, fresh installs). --- ## About this release Since v0.20.2 (v2026.8.16, tagged earlier today), this window landed **~250 commits**…&quot;, &quot;tags&quot;: [&quot;hermes&quot;, &quot;agent-ops&quot;, &quot;NousResearch/hermes-agent&quot;], &quot;score&quot;: 57.0, &quot;reasons&quot;: [&quot;hermes&quot;, &quot;hermes&quot;], &quot;plain&quot;: &quot;A new release/update from Hermes Agent. Plain version: A broad changelog-style release with lots of merged work. Skim it if you are deciding whether to upgrade or want to spot changed surfaces.&quot;, &quot;why&quot;: &quot;Directly relevant to your agent stack. This can affect Hermes behavior, upgrade timing, plugins, gateway surfaces, or ideas worth stealing for OAC/DestructoR666.&quot;}, {&quot;title&quot;: &quot;OpenAI Agents Python: v0.21.1&quot;, &quot;url&quot;: &quot;https://github.com/openai/openai-agents-python/releases/tag/v0.21.1&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-08-16T22:28:55+00:00&quot;, &quot;summary&quot;: &quot;## What&#x27;s Changed * feat(core): add model call timeouts by @seratch in https://github.com/openai/openai-agents-python/pull/4428 * feat(sandbox): add run-scoped sandbox working directories by @seratch in https://github.com/openai/openai-agents-python/pull/4427 * feat(sandbox): allow Docker sandboxes to disable networking by @koadegno in https://github.com/op…&quot;, &quot;tags&quot;: [&quot;agents&quot;, &quot;sdk&quot;, &quot;openai/openai-agents-python&quot;], &quot;score&quot;: 44.5, &quot;reasons&quot;: [&quot;agents&quot;, &quot;ai agent&quot;, &quot;openai agents&quot;], &quot;plain&quot;: &quot;A new release/update from OpenAI Agents Python. Plain version: feat(core): add model call timeouts by @seratch in * feat(sandbox): add run-scoped sandbox working directories by @seratch in * feat(sandbox): allow Docker sandboxes to disable networking by @koadegno in&quot;, &quot;why&quot;: &quot;Competitive intel: how OpenAI thinks agent SDKs should work, where Hermes is ahead/behind, and patterns we might borrow without joining the mothership.&quot;}, {&quot;title&quot;: &quot;MCP Python SDK: v2.0.0&quot;, &quot;url&quot;: &quot;https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.0.0&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-07-28T13:41:36+00:00&quot;, &quot;summary&quot;: &quot;# MCP Python SDK v2 Stable Release This is v2.0.0, the stable v2 release of the MCP Python SDK. It supports the 2026-07-28 revision of the Model Context Protocol and serves every earlier revision from the same server. `pip install mcp` now installs 2.x. ```bash pip install \&quot;mcp[cli]\&quot; # or uv add \&quot;mcp[cli]\&quot; ``` ### Documentation Rewrite The [documentation](h…&quot;, &quot;tags&quot;: [&quot;mcp&quot;, &quot;tools&quot;, &quot;modelcontextprotocol/python-sdk&quot;], &quot;score&quot;: 37.0, &quot;reasons&quot;: [&quot;mcp&quot;, &quot;model context protocol&quot;], &quot;plain&quot;: &quot;A new release/update from MCP Python SDK. Plain version: MCP Python SDK v2 Stable Release This is v2.0.0, the stable v2 release of the MCP Python SDK.&quot;, &quot;why&quot;: &quot;MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.&quot;}, {&quot;title&quot;: &quot;Pydantic AI: v2.32.0 (2026-08-18)&quot;, &quot;url&quot;: &quot;https://github.com/pydantic/pydantic-ai/releases/tag/v2.32.0&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-08-19T03:51:35+00:00&quot;, &quot;summary&quot;: &quot;## What&#x27;s Changed ### 🚀 Features * Suggest known model names for invalid identifiers by @dsfaccini in https://github.com/pydantic/pydantic-ai/pull/7325 * Support xAI attachment search lifecycle by @colesmcintosh in https://github.com/pydantic/pydantic-ai/pull/7156 * Surface OpenRouter web-search sources in `provider_details[\&quot;annotations\&quot;]` by @dsfaccini in…&quot;, &quot;tags&quot;: [&quot;agents&quot;, &quot;python&quot;, &quot;pydantic/pydantic-ai&quot;], &quot;score&quot;: 34.5, &quot;reasons&quot;: [&quot;agents&quot;], &quot;plain&quot;: &quot;A new release/update from Pydantic AI. Plain version: 🚀 Features * Suggest known model names for invalid identifiers by @dsfaccini in * Support xAI attachment search lifecycle by @colesmcintosh in * Surface OpenRouter web-search sources in provider_details[\&quot;annotations\&quot;] by @dsfacci…&quot;, &quot;why&quot;: &quot;Competitive intel: how OpenAI thinks agent SDKs should work, where Hermes is ahead/behind, and patterns we might borrow without joining the mothership.&quot;}, {&quot;title&quot;: &quot;Pydantic AI: v2.31.1 (2026-08-17)&quot;, &quot;url&quot;: &quot;https://github.com/pydantic/pydantic-ai/releases/tag/v2.31.1&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-08-18T03:26:00+00:00&quot;, &quot;summary&quot;: &quot;## What&#x27;s Changed ### 🐛 Bug Fixes * Deny native structured output for Claude Sonnet 5 and Fable 5 on Bedrock by @pydanty[bot] in https://github.com/pydantic/pydantic-ai/pull/7374 * Fall back to `thinking_level=&#x27;LOW&#x27;` for Gemini models that reject `MINIMAL` by @pydanty[bot] in https://github.com/pydantic/pydantic-ai/pull/7469 **Full Changelog**: https://gith…&quot;, &quot;tags&quot;: [&quot;agents&quot;, &quot;python&quot;, &quot;pydantic/pydantic-ai&quot;], &quot;score&quot;: 32.6, &quot;reasons&quot;: [&quot;agents&quot;], &quot;plain&quot;: &quot;A new release/update from Pydantic AI. Plain version: Deny native structured output for Claude Sonnet 5 and Fable 5 on Bedrock by @pydanty[bot] in * Fall back to thinking_level=&#x27;LOW&#x27; for Gemini models that reject MINIMAL by @pydanty[bot] in Full Changelog:&quot;, &quot;why&quot;: &quot;Competitive intel: how OpenAI thinks agent SDKs should work, where Hermes is ahead/behind, and patterns we might borrow without joining the mothership.&quot;}, {&quot;title&quot;: &quot;LangGraph: langgraph==1.2.11&quot;, &quot;url&quot;: &quot;https://github.com/langchain-ai/langgraph/releases/tag/1.2.11&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-08-11T14:00:50+00:00&quot;, &quot;summary&quot;: &quot;Changes since 1.2.10 * release(langgraph): 1.2.11 (#8595) * feat(langgraph): expose `trace_policy` on `add_node` (#8523) * chore(deps): bump the minor-and-patch group across 1 directory with 7 updates (#8533) * chore(deps): bump the minor-and-patch group across 1 directory with 5 updates (#8532) * release(checkpoint-postgres): 3.1.2 (#8565) * release(checkp…&quot;, &quot;tags&quot;: [&quot;agents&quot;, &quot;workflow&quot;, &quot;langchain-ai/langgraph&quot;], &quot;score&quot;: 30.0, &quot;reasons&quot;: [&quot;agents&quot;, &quot;workflow&quot;], &quot;plain&quot;: &quot;A new release/update from LangGraph. Plain version: 1.2.10 * release(langgraph): 1.2.11 (#8595) * feat(langgraph): expose trace_policy on add_node (#8523) * chore(deps): bump the minor-and-patch group across 1 directory with 7 updates (#8533) * chore(deps): bump the minor-and-patc…&quot;, &quot;why&quot;: &quot;Useful as a contrast model for workflow/stateful agents. Even if we do not adopt it, it exposes design patterns and footguns for OAC-style continuity.&quot;}, {&quot;title&quot;: &quot;LangGraph: langgraph-checkpoint-postgres==3.1.2&quot;, &quot;url&quot;: &quot;https://github.com/langchain-ai/langgraph/releases/tag/checkpointpostgres%3D%3D3.1.2&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-08-07T20:40:16+00:00&quot;, &quot;summary&quot;: &quot;Changes since checkpointpostgres==3.1.1 * release(checkpoint-postgres): 3.1.2 (#8565) * release(checkpoint): 4.2.0 (#8563) * test(checkpoint-postgres,checkpoint-sqlite): run the conformance suite (#8537) * fix(checkpoint-postgres): find plain-value seeds when walking delta history (#8535) * chore: enable RUF100 and clear unused noqa directives (#8546) * cho…&quot;, &quot;tags&quot;: [&quot;agents&quot;, &quot;workflow&quot;, &quot;langchain-ai/langgraph&quot;], &quot;score&quot;: 30.0, &quot;reasons&quot;: [&quot;agents&quot;, &quot;workflow&quot;], &quot;plain&quot;: &quot;A new release/update from LangGraph. Plain version: checkpointpostgres==3.1.1 * release(checkpoint-postgres): 3.1.2 (#8565) * release(checkpoint): 4.2.0 (#8563) * test(checkpoint-postgres,checkpoint-sqlite): run the conformance suite (#8537) * fix(checkpoint-postgres): find plain-…&quot;, &quot;why&quot;: &quot;Useful as a contrast model for workflow/stateful agents. Even if we do not adopt it, it exposes design patterns and footguns for OAC-style continuity.&quot;}, {&quot;title&quot;: &quot;MCP Python SDK: v1.29.0&quot;, &quot;url&quot;: &quot;https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.29.0&quot;, &quot;source&quot;: &quot;GitHub&quot;, &quot;kind&quot;: &quot;release&quot;, &quot;published&quot;: &quot;2026-07-28T13:37:06+00:00&quot;, &quot;summary&quot;: &quot;## What&#x27;s Changed * [v1.x] Route Context.report_progress() to the originating request stream by @maxisbey in https://github.com/modelcontextprotocol/python-sdk/pull/2994 * [v1.x] docs: publish llms.txt and markdown renditions of the docs by @maxisbey in https://github.com/modelcontextprotocol/python-sdk/pull/3029 * [v1.x] docs: pin mkdocs&lt;2 by @maxisbey in…&quot;, &quot;tags&quot;: [&quot;mcp&quot;, &quot;tools&quot;, &quot;modelcontextprotocol/python-sdk&quot;], &quot;score&quot;: 30.0, &quot;reasons&quot;: [&quot;mcp&quot;], &quot;plain&quot;: &quot;A new release/update from MCP Python SDK. Plain version: [v1.x] Route Context.report_progress() to the originating request stream by @maxisbey in * [v1.x] docs: publish llms.txt and markdown renditions of the docs by @maxisbey in * [v1.x] docs: pin mkdocs&lt;2 by @maxisbey in…&quot;, &quot;why&quot;: &quot;MCP is becoming the plumbing layer for agent tools. Worth watching because it shapes what Hermes/OAC can connect to without bespoke glue code.&quot;}]</script>
+  </footer>
+</main>
+</body>
+</html>
