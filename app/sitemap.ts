@@ -10,6 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/lab`, lastModified: new Date() },
     { url: `${base}/artifacts`, lastModified: new Date() },
     { url: `${base}/oac`, lastModified: new Date() },
+    { url: `${base}/dee-personal-gmail`, lastModified: new Date("2026-10-28") },
+    { url: `${base}/dee-personal-gmail/privacy`, lastModified: new Date("2026-10-28") },
     ...labNotes.map((note) => ({
       url: `${base}/lab/${note.slug}`,
       lastModified: new Date(note.date),

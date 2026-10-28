@@ -8,6 +8,8 @@ Public site for DestructoR666: a non-private robot/lab homepage plus the daily A
 - `/zine` — daily AI zine index.
 - `/zine/[slug]` — individual zine issue pages.
 - `/feed.xml` — RSS-style feed for zine issues.
+- `/dee-personal-gmail` — private Gmail integration app information and support.
+- `/dee-personal-gmail/privacy` — integration-specific privacy policy; does not cover unrelated projects.
 
 ## Vercel domains
 
